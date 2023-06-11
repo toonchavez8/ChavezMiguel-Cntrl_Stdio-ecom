@@ -1,98 +1,81 @@
-import SocialMedia from "../socialmedia/SocialMedia";
-import logo from "../../../assets/nav/Logo_CE.png";
 import "./NavBar.css";
 import CartWidget from "../cartWidget/CartWidget";
 
+import centralLogo from "/Logo_CE.png";
+
 export default function NavBar() {
 	return (
-		<header aria-label="Site Header" className=" dark:bg-gray-900">
-			<div className="mx-auto max-w-screen-xl pe-4 sm:px-6 lg:px-8">
-				<div className="flex h-28 items-center justify-between">
-					<div className="md:flex md:items-center md:gap-12">
-						<a className="block text-teal-600 dark:text-teal-600" href="/">
-							<span className="sr-only">Home</span>
-							<img src={logo} alt="Central Studio Logo" className="w-28" />
-						</a>
-					</div>
-
-					<div className="hidden md:block">
-						<nav aria-label="Site Nav" className="ff-nunito uppercase">
-							<ul className="flex items-center gap-6 text-sm">
+		<header className="navbar bg-none">
+			<nav className="navbar-start">
+				<div className="dropdown">
+					<label tabIndex={0} className="btn btn-ghost lg:hidden">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="h-5 w-5"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M4 6h16M4 12h8m-8 6h16"
+							/>
+						</svg>
+					</label>
+					<ul
+						tabIndex={0}
+						className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+					>
+						<li>
+							<a>Item 1</a>
+						</li>
+						<li>
+							<a>Parent</a>
+							<ul className="p-2">
 								<li>
-									<a
-										className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-										href="/"
-									>
-										renta de estudio
-									</a>
+									<a>Submenu 1</a>
 								</li>
-
 								<li>
-									<a
-										className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-										href="/"
-									>
-										servicios
-									</a>
-								</li>
-
-								<li>
-									<a
-										className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-										href="/"
-									>
-										portafolio
-									</a>
-								</li>
-
-								<li>
-									<a
-										className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-										href="/"
-									>
-										venta de cicloramas
-									</a>
-								</li>
-
-								<li>
-									<a
-										className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-										href="/"
-									>
-										<button className="ff-nunito uppercase bg-sky-700 px-6 py-2 rounded">
-											Contact
-										</button>
-									</a>
+									<a>Submenu 2</a>
 								</li>
 							</ul>
-						</nav>
-					</div>
-
-					<div className="flex items-center gap-4">
-						<div className="hidden md:block">
-							<SocialMedia />
-						</div>
-
-						<div className="block md:hidden">
-							<button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									className="h-5 w-5"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									strokeWidth="2"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M4 6h16M4 12h16M4 18h16"
-									/>
-								</svg>
-							</button>
-						</div>
-					</div>
+						</li>
+						<li>
+							<a>Item 3</a>
+						</li>
+					</ul>
 				</div>
+				<a className="btn btn-ghost normal-case overflow-hidden">
+					<img src={centralLogo} alt="Logo" className="w-full  " />
+				</a>
+			</nav>
+			<div className="navbar-center hidden lg:flex">
+				<ul className="menu menu-horizontal px-1">
+					<li>
+						<a>Item 1</a>
+					</li>
+					<li tabIndex={0}>
+						<details>
+							<summary>Parent</summary>
+							<ul className="p-2">
+								<li>
+									<a>Submenu 1</a>
+								</li>
+								<li>
+									<a>Submenu 2</a>
+								</li>
+							</ul>
+						</details>
+					</li>
+					<li>
+						<a>Item 3</a>
+					</li>
+				</ul>
+			</div>
+			<div className="navbar-end">
+				<a className="btn">Button</a>
 			</div>
 
 			<CartWidget />
