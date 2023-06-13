@@ -1,3 +1,4 @@
+import ProductListContainer from "../components/common/ProductList/ProductListContainer";
 import Hero from "../components/landingPage/Hero";
 
 export default function LandingPage() {
@@ -8,8 +9,9 @@ export default function LandingPage() {
 	];
 
 	return (
-		<main>
+		<main className="flex flex-col w-full items-center justify-center">
 			<Hero heroTaglines={heroTaglines} />
+			<ProductListContainer />
 		</main>
 	);
 }

@@ -1,8 +1,8 @@
 .cart-widget-Container {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	transform: translate(-50%, -100%);
+	position: fixed;
+	bottom: 0%;
+	left: 100%;
+	transform: translate(-150%, -250%);
 	background: rgb(177, 255, 62);
 	padding: 1rem;
 	border-radius: 100%;
@@ -13,12 +13,11 @@
 
 .cart-widget-Container:hover {
 	background: rgb(177, 255, 62, 0.8);
-
-	transform: translate(-65%, -100%) scale(1.1);
+	transform: translate(-150%, -250%) scale(1.1);
 }
 
 .cart-widget {
-	color: black;
+	@apply fill-primary;
 	display: flex;
 	justify-content: center;
 
@@ -38,7 +37,7 @@
 	right: 0;
 	color: white;
 	transform: translate(0, -50%);
-	background: rgb(21, 31, 249);
+	@apply bg-accent;
 	padding: 1rem;
 	border-radius: 100%;
 }

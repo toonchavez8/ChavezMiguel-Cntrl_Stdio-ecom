@@ -1,4 +1,4 @@
-export const products = [
+export const equipo = [
 	{
 		id: 1,
 		name: "Flashes Profoto D1 Air 500W",

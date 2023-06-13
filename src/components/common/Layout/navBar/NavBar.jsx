@@ -3,7 +3,6 @@ import "./NavBar.css";
 
 import centralLogo from "/Logo_CE.png";
 import { Link } from "react-router-dom";
-
 export default function NavBar() {
 	// create a function to add bg color to navbar on scroll
 
@@ -278,7 +277,7 @@ export default function NavBar() {
 						</Link>
 					</div>
 					<button className="btn btn-secondary btn-outline border-2 ">
-						<Link to={"/contacto"}>contacto</Link>
+						<Link to={"/"}>contacto</Link>
 					</button>
 				</ul>
 			</div>
