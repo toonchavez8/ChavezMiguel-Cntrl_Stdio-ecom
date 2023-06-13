@@ -3,3 +3,11 @@
 .ff-nunito {
 	font-family: "Nunito", sans-serif;
 }
+
+header {
+	position: fixed;
+}
+
+nav {
+	position: sticky;
+}
