@@ -170,7 +170,7 @@ export default function NavBar() {
 			</div>
 			<div className="drawer-side">
 				<label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-				<ul className="menu p-4 w-80 h-full bg-primary text-white uppercase debug gap-4">
+				<ul className="menu p-4 w-80 h-full bg-primary text-white uppercase  gap-4">
 					<li className="items-center">
 						<img
 							src={centralLogo}

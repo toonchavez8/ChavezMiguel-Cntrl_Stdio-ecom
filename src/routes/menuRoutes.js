@@ -9,6 +9,7 @@ import Portafolio from "../pages/Portafolio";
 import Cicloramas from "../pages/Cicloramas";
 import Contacto from "../pages/Contacto";
 import ProductDetailContainter from "../pages/productDetail/ProductDetailContainter";
+import ProductListContainer from "../components/common/ProductList/ProductListContainer";
 
 export const menuRoutes = [
 	{
@@ -66,5 +67,10 @@ export const menuRoutes = [
 		id: 11,
 		path: "/itemdetail/:id",
 		Element: ProductDetailContainter,
+	},
+	{
+		id: 12,
+		path: "/itemdetail/category/:category",
+		Element: ProductListContainer,
 	},
 ];
