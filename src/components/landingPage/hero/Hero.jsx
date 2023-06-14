@@ -1,6 +1,6 @@
 import "./Hero.css";
 import { useEffect, useState } from "react";
-import heroImg from "../../assets/landing/Hero_Banner.png";
+import heroImg from "../../../assets/landing/Hero_Banner.png";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
@@ -23,10 +23,8 @@ export default function Hero(
 
 	return (
 		<section className="relative ">
-			<div className="absolute  z-10 text-white uppercase  top-1/2 left-1/2 transform -translate-x-3/4 -translate-y-1/2 ">
-				<h1 className="ff-libre-baskerville text-6xl min-h-fit ">
-					{heroTagline}
-				</h1>
+			<div className="absolute  z-10 prose text-white uppercase  top-1/2 left-1/2 transform -translate-x-3/4 -translate-y-1/2  ">
+				<h1 className="ff-libre-baskerville  min-h-fit  ">{heroTagline}</h1>
 				<div className="flex gap-3  ff-nunito pt-5">
 					<button className="btn btn-outline btn-primary border-2">
 						Conoce el estudio

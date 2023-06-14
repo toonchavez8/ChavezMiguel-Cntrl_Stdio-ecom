@@ -3,7 +3,6 @@ import "./NavBar.css";
 
 import centralLogo from "/Logo_CE.png";
 import { Link } from "react-router-dom";
-
 export default function NavBar() {
 	// create a function to add bg color to navbar on scroll
 
@@ -29,10 +28,10 @@ export default function NavBar() {
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-			<div className="drawer-content flex flex-col ff-nunito text-white">
+			<div className="drawer-content flex flex-col ff-nunito text-white px-4">
 				{/* Navbar */}
 				<nav className="w-full navbar bg-none bg-scroll transition mt-0 pt-0 ">
-					<div className="flex-none lg:hidden">
+					<div className="flex-none lg:hidden mx-4">
 						<label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +55,7 @@ export default function NavBar() {
 						<img src={centralLogo} alt="Logo" className="mx-auto" />
 					</Link>
 					<div className="hidden lg:block uppercase  mx-auto">
-						<ul className="menu menu-horizontal ">
+						<ul className="menu menu-horizontal gap-1">
 							{/* Navbar menu content here */}
 							<li>
 								<details className="fill-secondary ">
@@ -278,7 +277,7 @@ export default function NavBar() {
 						</Link>
 					</div>
 					<button className="btn btn-secondary btn-outline border-2 ">
-						<Link to={"/contacto"}>contacto</Link>
+						<Link to={"/"}>contacto</Link>
 					</button>
 				</ul>
 			</div>
