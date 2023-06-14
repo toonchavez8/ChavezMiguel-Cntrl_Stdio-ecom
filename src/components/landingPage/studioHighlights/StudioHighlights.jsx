@@ -1,6 +1,6 @@
 export default function StudioHighlights() {
 	return (
-		<section className="flex flex-col w-full debug">
+		<section className="flex flex-col w-full ">
 			<div className="flex flex-row items-center justify-center w-full  ">
 				<h2 className="">
 					El lugar ideal para tu producción de foto o video, con la mejor

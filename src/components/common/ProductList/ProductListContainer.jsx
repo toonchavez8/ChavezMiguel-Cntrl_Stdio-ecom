@@ -7,6 +7,7 @@ export default function ProductListContainer() {
 	const [products, setProducts] = useState([]);
 	const { category } = useParams();
 
+	console.log(category);
 	useEffect(() => {
 		let productosFiltrados = equipo.filter(
 			(item) => item.category === category
