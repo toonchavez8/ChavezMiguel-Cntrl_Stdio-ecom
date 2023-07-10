@@ -1,13 +1,16 @@
 import { useParams } from "react-router";
 import ProductDetail from "./ProductDetail";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { equipo } from "../../data/productMock";
+import { CartContext } from "../../context/cartContext";
 
 export default function ProductDetailContainter() {
 	const [productSelected, setProductSelected] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
 	const { id } = useParams();
+
+	const { addToCart } = useContext(CartContext);
 
 	useEffect(() => {
 		let findProduct = equipo.find((product) => product.id == id);
@@ -36,7 +39,10 @@ export default function ProductDetailContainter() {
 			{isLoading ? (
 				<span className="loading loading-spinner loading-md"></span>
 			) : (
-				<ProductDetail productSelected={productSelected} />
+				<ProductDetail
+					productSelected={productSelected}
+					addToCart={addToCart}
+				/>
 			)}
 		</div>
 	);

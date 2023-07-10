@@ -12,9 +12,10 @@ ProductDetail.propTypes = {
 		available: PropTypes.bool.isRequired,
 		quantity: PropTypes.number.isRequired,
 	}).isRequired,
+	addToCart: PropTypes.func.isRequired,
 };
 
-export default function ProductDetail({ productSelected }) {
+export default function ProductDetail({ productSelected, addToCart }) {
 	return (
 		<main className="flex flex-col items-center justify-center mt-28 ">
 			<div className="text-sm breadcrumbs text-accent">
@@ -45,7 +46,9 @@ export default function ProductDetail({ productSelected }) {
 					</div>
 					<span></span>
 
-					<button className="btn btn-primary">Agregar al carrito</button>
+					<button className="btn btn-primary" onClick={addToCart}>
+						Agregar al carrito
+					</button>
 				</div>
 			</section>
 		</main>

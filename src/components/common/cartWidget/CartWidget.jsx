@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { IconContext } from "react-icons";
 import { BsFillBasketFill } from "react-icons/bs";
 import "./CartWidget.css";
+import { Link } from "react-router-dom";
 
 export default function CartWidget() {
 	const cartWidgetStyle = useMemo(
@@ -12,12 +13,13 @@ export default function CartWidget() {
 	);
 
 	return (
-		<button className="cart-widget-Container">
-			<IconContext.Provider value={cartWidgetStyle}>
-				<BsFillBasketFill />
-			</IconContext.Provider>
-
-			<span className="cart-widget-Counter">0</span>
-		</button>
+		<Link to={`/cart`}>
+			<button className="cart-widget-Container">
+				<IconContext.Provider value={cartWidgetStyle}>
+					<BsFillBasketFill />
+				</IconContext.Provider>
+				<span className="cart-widget-Counter">0</span>
+			</button>
+		</Link>
 	);
 }
