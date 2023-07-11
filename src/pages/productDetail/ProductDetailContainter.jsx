@@ -12,6 +12,7 @@ export default function ProductDetailContainter() {
 
 	const { addToCart } = useContext(CartContext);
 
+	// use effect to find product based on id
 	useEffect(() => {
 		let findProduct = equipo.find((product) => product.id == id);
 

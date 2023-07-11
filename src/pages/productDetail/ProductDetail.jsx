@@ -16,6 +16,14 @@ ProductDetail.propTypes = {
 };
 
 export default function ProductDetail({ productSelected, addToCart }) {
+	const onAdd = () => {
+		let data = {
+			...productSelected,
+		};
+
+		addToCart(data);
+	};
+
 	return (
 		<main className="flex flex-col items-center justify-center mt-28 ">
 			<div className="text-sm breadcrumbs text-accent">
@@ -46,7 +54,7 @@ export default function ProductDetail({ productSelected, addToCart }) {
 					</div>
 					<span></span>
 
-					<button className="btn btn-primary" onClick={addToCart}>
+					<button className="btn btn-primary" onClick={onAdd}>
 						Agregar al carrito
 					</button>
 				</div>
