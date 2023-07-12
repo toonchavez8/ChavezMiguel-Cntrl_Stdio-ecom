@@ -10,7 +10,11 @@ export default function ProductDetailContainter() {
 
 	const { id } = useParams();
 
-	const { addToCart } = useContext(CartContext);
+	const { addToCart, getTotalQuanityById } = useContext(CartContext);
+
+	const Quantity = getTotalQuanityById(id);
+
+	console.log("Amount in cart", Quantity);
 
 	// use effect to find product based on id
 	useEffect(() => {
@@ -43,6 +47,7 @@ export default function ProductDetailContainter() {
 				<ProductDetail
 					productSelected={productSelected}
 					addToCart={addToCart}
+					Quantity={Quantity}
 				/>
 			)}
 		</div>

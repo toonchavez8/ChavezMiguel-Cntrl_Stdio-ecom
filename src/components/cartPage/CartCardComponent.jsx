@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 CartCardComponent.propTypes = {
 	item: PropTypes.shape({
@@ -30,8 +31,6 @@ export default function CartCardComponent({ item, removeProductById }) {
 		setQuantity(quantity + 1);
 	};
 
-	console.log("item from cart component", item);
-
 	const formatter = new Intl.NumberFormat("es-MX", {
 		style: "currency",
 		currency: "MXN",
@@ -55,7 +54,9 @@ export default function CartCardComponent({ item, removeProductById }) {
 			/>
 			<div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
 				<div className="mt-5 sm:mt-0">
-					<h2 className="text-lg font-bold text-gray-900">{item.name}</h2>
+					<Link to={`/itemdetail/${item.id}`}>
+						<h2 className="text-lg font-bold text-gray-900">{item.name}</h2>
+					</Link>
 					<p className="mt-1 text-xs text-gray-700">{item.description}</p>
 				</div>
 				<div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">

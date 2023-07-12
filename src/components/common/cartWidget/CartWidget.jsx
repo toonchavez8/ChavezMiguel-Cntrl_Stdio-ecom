@@ -20,13 +20,11 @@ export default function CartWidget() {
 	let totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
 	return (
-		<Link to={`/cart`}>
-			<button className="cart-widget-Container">
-				<IconContext.Provider value={cartWidgetStyle}>
-					<BsFillBasketFill />
-				</IconContext.Provider>
-				<span className="cart-widget-Counter">{totalItems}</span>
-			</button>
+		<Link className="cart-widget-Container" to={`/cart`}>
+			<IconContext.Provider value={cartWidgetStyle}>
+				<BsFillBasketFill />
+			</IconContext.Provider>
+			<span className="cart-widget-Counter">{totalItems}</span>
 		</Link>
 	);
 }

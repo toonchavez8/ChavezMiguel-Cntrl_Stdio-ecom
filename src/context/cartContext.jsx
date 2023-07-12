@@ -24,7 +24,7 @@ const CartContextProvider = ({ children }) => {
 				if (product.id === newProduct.id) {
 					return {
 						...product,
-						quantity: product.quantity + newProduct.quantity,
+						quantity: newProduct.quantity,
 					};
 				} else {
 					return product;
@@ -56,6 +56,11 @@ const CartContextProvider = ({ children }) => {
 		setCartItems(newProductArray);
 	};
 
+	const getTotalQuanityById = (id) => {
+		let product = cartItems.find((prod) => prod.id === +id);
+		return product?.quantity;
+	};
+
 	// Memoize the context value to prevent unnecessary re-renders
 	let contextValue = useMemo(() => {
 		return {
@@ -63,11 +68,11 @@ const CartContextProvider = ({ children }) => {
 			addToCart,
 			clearCart,
 			removeProductById,
+			getTotalQuanityById,
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cartItems]);
 
-	console.log("cart", cartItems);
 	// Render the context provider and pass the context value to the children
 	return (
 		<CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
