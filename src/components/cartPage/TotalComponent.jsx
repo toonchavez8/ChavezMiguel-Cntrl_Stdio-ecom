@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-export default function TotalComponent({ cart }) {
+// Proptype type declaration
+TotalComponent.propTypes = {
+	cart: PropTypes.shape({
+		price: PropTypes.number.isRequired,
+		quantity: PropTypes.number.isRequired,
+	}).isRequired,
+	clearCart: PropTypes.func.isRequired,
+};
+
+export default function TotalComponent({ cart, clearCart }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalWithTax, setTotalWithTax] = useState(0);
 
 	useEffect(() => {
 		const calculateTotal = () => {
+			// eslint-disable-next-line react/prop-types
 			const subtotal = cart.reduce((acc, curr) => {
 				return acc + curr.price * curr.quantity;
 			}, 0);
@@ -39,11 +50,22 @@ export default function TotalComponent({ cart }) {
 					<p className="mb-1 text-lg font-bold">
 						{formatter.format(totalWithTax)}
 					</p>
-					<p className="text-sm text-gray-700">incluye IVA</p>
+					{totalPrice == 0 ? (
+						""
+					) : (
+						<p className="text-sm text-gray-700">incluye IVA</p>
+					)}
 				</div>
 			</div>
 			<button className="mt-6 w-full rounded-md bg-primary py-1.5 font-medium text-blue-50 hover:bg-accent">
 				Rentar
+			</button>
+
+			<button
+				className="mt-6 w-full rounded-md bg-neutral-content py-1.5 font-medium bg-opacity-50 hover:bg-secondary"
+				onClick={() => clearCart()}
+			>
+				Limpiar Carrito
 			</button>
 		</div>
 	);

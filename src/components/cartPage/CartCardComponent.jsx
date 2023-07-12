@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 
 CartCardComponent.propTypes = {
 	item: PropTypes.shape({
+		id: PropTypes.number.isRequired,
 		name: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired,
 		quantity: PropTypes.number.isRequired,
 	}).isRequired,
+	removeProductById: PropTypes.func.isRequired,
 };
 
-export default function CartCardComponent({ item }) {
+export default function CartCardComponent({ item, removeProductById }) {
 	const [quantity, setQuantity] = useState(item.quantity, 0); // Example initial quantity value
 
 	const handleQuantityChange = (event) => {
@@ -36,6 +38,13 @@ export default function CartCardComponent({ item }) {
 	});
 
 	const priceInMXN = formatter.format(item.price);
+
+	// function to removeproduct by id
+	const handleRemovedById = (item) => {
+		const id = item.id;
+
+		removeProductById(id);
+	};
 
 	return (
 		<article className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
@@ -73,20 +82,22 @@ export default function CartCardComponent({ item }) {
 					</div>
 					<div className="flex items-center space-x-4">
 						<p className="text-sm">{priceInMXN}</p>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth="1.5"
-							stroke="currentColor"
-							className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						</svg>
+						<button onClick={() => handleRemovedById(item)}>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth="1.5"
+								stroke="currentColor"
+								className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>

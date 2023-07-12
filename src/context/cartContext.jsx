@@ -37,20 +37,35 @@ const CartContextProvider = ({ children }) => {
 		}
 	};
 
-	// Memoize the context value to prevent unnecessary re-renders
-	const contextValue = useMemo(() => {
-		return {
-			cartItems: cartItems,
-			addToCart: addToCart,
-		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [cartItems]);
-
 	function productExistsInCart(id) {
 		let exists = cartItems.some((prod) => prod.id === id);
 
 		return exists;
 	}
+
+	const clearCart = () => {
+		setCartItems([]);
+	};
+
+	const removeProductById = (id) => {
+		// filter out by id and return array
+		let newProductArray = cartItems.filter((product) => product.id !== id);
+
+		console.log(`product with id: ${id} removed`);
+
+		setCartItems(newProductArray);
+	};
+
+	// Memoize the context value to prevent unnecessary re-renders
+	let contextValue = useMemo(() => {
+		return {
+			cartItems,
+			addToCart,
+			clearCart,
+			removeProductById,
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [cartItems]);
 
 	console.log("cart", cartItems);
 	// Render the context provider and pass the context value to the children

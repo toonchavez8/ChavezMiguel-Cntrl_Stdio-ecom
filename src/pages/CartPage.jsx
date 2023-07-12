@@ -4,7 +4,7 @@ import TotalComponent from "../components/cartPage/TotalComponent";
 import CartCardComponent from "../components/cartPage/CartCardComponent";
 
 export default function CartPage() {
-	const { cartItems } = useContext(CartContext);
+	const { cartItems, clearCart, removeProductById } = useContext(CartContext);
 
 	console.log("cart", cartItems);
 
@@ -16,7 +16,11 @@ export default function CartPage() {
 				<div className="rounded-lg md:w-2/3">
 					{cartItems.length > 0 ? (
 						cartItems.map((item) => (
-							<CartCardComponent key={item.id} item={item} />
+							<CartCardComponent
+								key={item.id}
+								item={item}
+								removeProductById={removeProductById}
+							/>
 						))
 					) : (
 						<article className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
@@ -24,7 +28,7 @@ export default function CartPage() {
 						</article>
 					)}
 				</div>
-				<TotalComponent cart={cartItems} />
+				<TotalComponent cart={cartItems} clearCart={clearCart} />
 			</div>
 		</section>
 	);
