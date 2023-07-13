@@ -4,7 +4,12 @@ import TotalComponent from "../components/cartPage/TotalComponent";
 import CartCardComponent from "../components/cartPage/CartCardComponent";
 
 export default function CartPage() {
-	const { cartItems, clearCart, removeProductById } = useContext(CartContext);
+	const {
+		cartItems,
+		clearCart,
+		removeProductById,
+		changeProductQuantityInCart,
+	} = useContext(CartContext);
 
 	console.log("cart", cartItems);
 
@@ -20,6 +25,7 @@ export default function CartPage() {
 								key={item.id}
 								item={item}
 								removeProductById={removeProductById}
+								changeProductQuantityInCart={changeProductQuantityInCart}
 							/>
 						))
 					) : (

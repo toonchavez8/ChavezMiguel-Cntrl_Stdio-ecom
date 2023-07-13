@@ -37,12 +37,14 @@ const CartContextProvider = ({ children }) => {
 		}
 	};
 
+	// function to check if product exists using id
 	function productExistsInCart(id) {
 		let exists = cartItems.some((prod) => prod.id === id);
 
 		return exists;
 	}
 
+	// set cart to empty array
 	const clearCart = () => {
 		setCartItems([]);
 	};
@@ -51,14 +53,28 @@ const CartContextProvider = ({ children }) => {
 		// filter out by id and return array
 		let newProductArray = cartItems.filter((product) => product.id !== id);
 
-		console.log(`product with id: ${id} removed`);
-
 		setCartItems(newProductArray);
 	};
 
 	const getTotalQuanityById = (id) => {
 		let product = cartItems.find((prod) => prod.id === +id);
 		return product?.quantity;
+	};
+
+	const changeProductQuantityInCart = (item, quantity) => {
+		console.log("item:", item.name, item.quantity, "quantity", quantity);
+
+		// filter out the item with same id
+		let newArray = cartItems.filter((product) => product.id !== item.id);
+
+		// add the updated item to the array
+		newArray.push({
+			...item,
+			quantity: quantity,
+		});
+
+		// set the new array as cartItems state
+		setCartItems(newArray);
 	};
 
 	// Memoize the context value to prevent unnecessary re-renders
@@ -69,6 +85,7 @@ const CartContextProvider = ({ children }) => {
 			clearCart,
 			removeProductById,
 			getTotalQuanityById,
+			changeProductQuantityInCart,
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cartItems]);

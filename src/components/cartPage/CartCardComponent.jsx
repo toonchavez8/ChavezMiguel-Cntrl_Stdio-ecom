@@ -9,26 +9,48 @@ CartCardComponent.propTypes = {
 		description: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		price: PropTypes.number.isRequired,
+		stock: PropTypes.number.isRequired,
 		quantity: PropTypes.number.isRequired,
 	}).isRequired,
 	removeProductById: PropTypes.func.isRequired,
+	changeProductQuantityInCart: PropTypes.func.isRequired,
 };
 
-export default function CartCardComponent({ item, removeProductById }) {
-	const [quantity, setQuantity] = useState(item.quantity, 0); // Example initial quantity value
+export default function CartCardComponent({
+	item,
+	removeProductById,
+	changeProductQuantityInCart,
+}) {
+	const [quantity, setQuantity] = useState(item.quantity);
 
 	const handleQuantityChange = (event) => {
-		setQuantity(event.target.value);
+		const newQuantity = parseInt(event.target.value, 10);
+		setQuantity(newQuantity);
 	};
 
 	const handleDecreaseQuantity = () => {
 		if (quantity > 1) {
-			setQuantity(quantity - 1);
+			// we declare new quanity by decreasing 1 from current quantity
+
+			let newQuantity = quantity - 1;
+
+			setQuantity(newQuantity);
+
+			changeProductQuantityInCart(item, newQuantity);
 		}
 	};
 
 	const handleIncreaseQuantity = () => {
-		setQuantity(quantity + 1);
+		// we declare new quanity by increase 1 from current quantity as long as quanity is no greater than item quanity
+
+		if (quantity < item.stock) {
+			let newQuantity = quantity + 1;
+
+			console.log("item from quanity", item.name, item.quantity);
+			setQuantity(newQuantity);
+
+			changeProductQuantityInCart(item, newQuantity);
+		}
 	};
 
 	const formatter = new Intl.NumberFormat("es-MX", {
@@ -72,6 +94,7 @@ export default function CartCardComponent({ item, removeProductById }) {
 							type="number"
 							value={quantity}
 							min="1"
+							max={item.quantity}
 							onChange={handleQuantityChange}
 						/>
 						<button

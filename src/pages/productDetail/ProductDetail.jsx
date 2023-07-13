@@ -12,6 +12,7 @@ ProductDetail.propTypes = {
 		description: PropTypes.string.isRequired,
 		category: PropTypes.string.isRequired,
 		available: PropTypes.bool.isRequired,
+		stock: PropTypes.number.isRequired,
 		quantity: PropTypes.number.isRequired,
 	}).isRequired,
 	addToCart: PropTypes.func.isRequired,
@@ -41,7 +42,7 @@ export default function ProductDetail({
 	};
 
 	const handleIncreaseQuantity = () => {
-		if (quantity < productSelected.quantity) {
+		if (quantity < productSelected.stock) {
 			setQuantity(quantity + 1);
 		}
 	};
