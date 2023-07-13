@@ -23,17 +23,19 @@ export default function Hero(
 
 	return (
 		<section className="relative ">
-			<div className="absolute  z-10  text-white uppercase  top-1/2 left-1/2 transform -translate-x-3/4 -translate-y-1/2  ">
-				<h1 className="ff-libre-baskerville  min-h-fit  ">{heroTagline}</h1>
-				<div className="flex gap-3  ff-nunito pt-5">
-					<button className="btn btn-outline btn-primary border-2">
+			<div className="absolute  z-10  text-white uppercase   inset-auto top-0 left-1/4  translate-y-full    ">
+				<h1 className="ff-libre-baskerville  min-h-fit   text-6xl  whitespace-pre-line ">
+					{heroTagline}
+				</h1>
+				<div className="flex gap-3  ff-nunito pt-5 ">
+					<button className="btn btn-outline btn-primary border-2 group">
 						Conoce el estudio
-						<AiOutlineArrowRight className="inline-block ml-2" />
+						<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
 					</button>
 
-					<button className="btn btn-outline btn-secondary border-2">
+					<button className="btn btn-outline btn-secondary border-2 group">
 						Nuestro Trabajo
-						<AiOutlineArrowRight className="inline-block ml-2" />
+						<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
 					</button>
 				</div>
 			</div>
