@@ -7,15 +7,12 @@ export default function ProductListContainer() {
 	const [products, setProducts] = useState([]);
 	const { category } = useParams();
 
-	console.log(category);
 	useEffect(() => {
 		let productosFiltrados = equipo.filter(
 			(item) => item.category === category
 		);
 
-		const getProducts = new Promise((resolve) => {
-			resolve(category ? productosFiltrados : equipo);
-		});
+		const getProducts = Promise.resolve(category ? productosFiltrados : equipo);
 
 		getProducts
 			.then((res) => {
@@ -29,6 +26,5 @@ export default function ProductListContainer() {
 			});
 	}, [category]);
 
-	console.log(products);
 	return <ProductList products={products} />;
 }

@@ -11,3 +11,7 @@ header {
 nav {
 	position: sticky;
 }
+
+li a:hover {
+	@apply bg-primary text-slate-50;
+}

@@ -4,9 +4,9 @@ import StudioHighlights from "../components/landingPage/studioHighlights/StudioH
 
 export default function LandingPage() {
 	const heroTaglines = [
-		"central es renta de estudio",
-		"central es produccion audiovisual",
-		"central es venta de texturas",
+		`central es \n renta de estudio`,
+		`central es \n produccion audiovisual`,
+		`central es \n venta de texturas`,
 	];
 
 	return (

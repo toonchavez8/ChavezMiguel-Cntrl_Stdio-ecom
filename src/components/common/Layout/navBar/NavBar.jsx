@@ -24,7 +24,7 @@ export default function NavBar() {
 	return (
 		<header
 			className={`drawer z-50 fixed transition ${
-				navbarBg ? "bg-gradient-to-b  from-[#0611e528] from-0%" : ""
+				navbarBg ? "bg-gradient-to-b  from-[#0611e56b] from-0%" : ""
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -92,8 +92,10 @@ export default function NavBar() {
 					<div className="flex-none hidden lg:block uppercase">
 						<ul className="menu menu-horizontal">
 							{/* Navbar menu content here */}
-							<button className="btn btn-secondary btn-outline border-2">
-								<Link to={"/contacto"}>contacto</Link>
+							<button className="btn btn-secondary btn-outline border-2 px-5">
+								<Link to={"/contacto"} className="">
+									contacto
+								</Link>
 							</button>
 						</ul>
 					</div>
