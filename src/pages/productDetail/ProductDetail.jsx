@@ -16,15 +16,15 @@ ProductDetail.propTypes = {
 		quantity: PropTypes.number.isRequired,
 	}).isRequired,
 	addToCart: PropTypes.func.isRequired,
-	Quantity: PropTypes.number.isRequired,
+	Quantity: PropTypes.number,
 };
 
 export default function ProductDetail({
 	productSelected,
 	addToCart,
-	Quantity = 1,
+	Quantity,
 }) {
-	const [quantity, setQuantity] = useState(Quantity, 1);
+	const [quantity, setQuantity] = useState(Quantity || 1);
 
 	const onAdd = () => {
 		let data = {
