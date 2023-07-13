@@ -92,11 +92,12 @@ export default function NavBar() {
 					<div className="flex-none hidden lg:block uppercase">
 						<ul className="menu menu-horizontal">
 							{/* Navbar menu content here */}
-							<button className="btn btn-secondary btn-outline border-2 px-5">
-								<Link to={"/contacto"} className="">
-									contacto
-								</Link>
-							</button>
+							<Link
+								to={"/contacto"}
+								className="btn btn-secondary btn-outline border-2 px-5"
+							>
+								contacto
+							</Link>
 						</ul>
 					</div>
 					<div className=" grid grid-flow-col gap-4 fill-secondary px-0 md:px-10 ">
@@ -278,9 +279,12 @@ export default function NavBar() {
 							</svg>
 						</Link>
 					</div>
-					<button className="btn btn-secondary btn-outline border-2 ">
-						<Link to={"/"}>contacto</Link>
-					</button>
+					<Link
+						to={"/contacto"}
+						className="btn btn-secondary btn-outline border-2"
+					>
+						contacto
+					</Link>
 				</ul>
 			</div>
 		</header>
