@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function ProductDetail({
 	productSelected,
@@ -18,6 +19,15 @@ export default function ProductDetail({
 		};
 
 		addToCart(data);
+		Swal.fire({
+			position: "center",
+			icon: "success",
+			title: `${productSelected.name} agregado al carrito`,
+			showConfirmButton: true,
+			timer: 1500,
+			// custum button color
+			confirmButtonColor: "#151ff9",
+		});
 	};
 
 	const handleDecreaseQuantity = () => {
