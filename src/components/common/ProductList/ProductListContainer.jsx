@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import { useParams } from "react-router";
 import { DATABASE } from "../../../fireBaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export default function ProductListContainer() {
 	// State variable to store the products
@@ -13,11 +13,28 @@ export default function ProductListContainer() {
 	const { category } = useParams();
 
 	useEffect(() => {
-		// get item collection froim database and pull table
 		let itemCollection = collection(DATABASE, "equipo");
+		let search;
 
-		getDocs(itemCollection)
-			.then((res) => console.log(res))
+		if (!category) {
+			// get item collection froim database and pull table
+			search = itemCollection;
+		} else {
+			// Create a query to filter by category
+			search = query(itemCollection, where("category", "==", category));
+		}
+
+		getDocs(search)
+			.then((res) => {
+				let items = res.docs.map((item) => {
+					return {
+						...item.data(),
+						id: item.id,
+					};
+				});
+				setProducts(items);
+				console.log(items);
+			})
 			.catch((err) => console.log(err));
 	}, [category]);
 

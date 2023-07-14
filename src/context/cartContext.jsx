@@ -1,4 +1,4 @@
-import { useState, createContext, useMemo } from "react";
+import { useState, createContext, useMemo, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -6,7 +6,23 @@ export const CartContext = createContext();
 // eslint-disable-next-line react/prop-types
 const CartContextProvider = ({ children }) => {
 	// State to store the cart items
-	const [cartItems, setCartItems] = useState([]);
+	const [cartItems, setCartItems] = useState(() => {
+		const storedCartItems = localStorage.getItem("cartItems");
+		return storedCartItems ? JSON.parse(storedCartItems) : [];
+	});
+
+	// use effect to set cart from local storage
+	useEffect(() => {
+		const storedCartItems = localStorage.getItem("cartItems");
+		if (storedCartItems) {
+			setCartItems(JSON.parse(storedCartItems));
+		}
+	}, []);
+
+	// use effect to save cart into local storage
+	useEffect(() => {
+		localStorage.setItem("cartItems", JSON.stringify(cartItems));
+	}, [cartItems]);
 
 	// Function to add an item to the cart
 	const addToCart = (newProduct) => {

@@ -1,10 +1,11 @@
 import { useParams } from "react-router";
 import ProductDetail from "./ProductDetail";
 import { useContext, useEffect, useState } from "react";
-import { equipo } from "../../data/productMock";
 import { CartContext } from "../../context/cartContext";
+import { getDoc, doc, collection } from "firebase/firestore";
+import { DATABASE } from "../../fireBaseConfig";
 
-export default function ProductDetailContainter() {
+export default function ProductDetailContainer() {
 	const [productSelected, setProductSelected] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -16,27 +17,19 @@ export default function ProductDetailContainter() {
 
 	console.log("Amount in cart", Quantity);
 
-	// use effect to find product based on id
 	useEffect(() => {
-		let findProduct = equipo.find((product) => product.id == id);
+		let itemCollection = collection(DATABASE, "equipo");
+		let refDoc = doc(itemCollection, id);
 
-		const getProduct = new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(findProduct);
-			}, 2000);
-		});
-
-		getProduct
-			.then((product) => {
-				setProductSelected(product);
-				console.log("Product retrieved:", product);
-			})
-			.catch((error) => {
-				console.error("Error retrieving product:", error);
-			})
-			.finally(() => {
+		getDoc(refDoc)
+			.then((res) => {
+				setProductSelected({ ...res.data(), id: res.id });
 				setIsLoading(false);
-			});
+			})
+			.catch((err) => {
+				console.log(err);
+			})
+			.finally(setIsLoading(false));
 	}, [id]);
 
 	return (
