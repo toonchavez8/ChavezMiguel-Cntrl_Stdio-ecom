@@ -15,8 +15,6 @@ export default function ProductDetailContainer() {
 
 	const Quantity = getTotalQuanityById(id);
 
-	console.log("Amount in cart", Quantity);
-
 	useEffect(() => {
 		let itemCollection = collection(DATABASE, "equipo");
 		let refDoc = doc(itemCollection, id);
@@ -24,18 +22,17 @@ export default function ProductDetailContainer() {
 		getDoc(refDoc)
 			.then((res) => {
 				setProductSelected({ ...res.data(), id: res.id });
-				setIsLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
 			})
-			.finally(setIsLoading(false));
+			.finally(() => setIsLoading(false));
 	}, [id]);
 
 	return (
-		<div>
+		<div className="flex justify-center items-center h-full">
 			{isLoading ? (
-				<span className="loading loading-spinner loading-md"></span>
+				<span className="loading loading-spinner  loading-lg text-primary "></span>
 			) : (
 				<ProductDetail
 					productSelected={productSelected}

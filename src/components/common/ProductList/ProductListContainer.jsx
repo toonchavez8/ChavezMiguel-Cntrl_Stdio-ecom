@@ -33,7 +33,6 @@ export default function ProductListContainer() {
 					};
 				});
 				setProducts(items);
-				console.log(items);
 			})
 			.catch((err) => console.log(err));
 	}, [category]);

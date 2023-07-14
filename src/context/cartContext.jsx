@@ -11,14 +11,6 @@ const CartContextProvider = ({ children }) => {
 		return storedCartItems ? JSON.parse(storedCartItems) : [];
 	});
 
-	// use effect to set cart from local storage
-	useEffect(() => {
-		const storedCartItems = localStorage.getItem("cartItems");
-		if (storedCartItems) {
-			setCartItems(JSON.parse(storedCartItems));
-		}
-	}, []);
-
 	// use effect to save cart into local storage
 	useEffect(() => {
 		localStorage.setItem("cartItems", JSON.stringify(cartItems));

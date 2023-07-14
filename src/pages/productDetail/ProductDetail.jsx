@@ -3,27 +3,12 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-ProductDetail.propTypes = {
-	productSelected: PropTypes.shape({
-		id: PropTypes.number.isRequired,
-		name: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		image: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		category: PropTypes.string.isRequired,
-		available: PropTypes.bool.isRequired,
-		stock: PropTypes.number.isRequired,
-		quantity: PropTypes.number.isRequired,
-	}).isRequired,
-	addToCart: PropTypes.func.isRequired,
-	Quantity: PropTypes.number,
-};
-
 export default function ProductDetail({
 	productSelected,
 	addToCart,
 	Quantity,
 }) {
+	console.log("productSelected", productSelected);
 	const [quantity, setQuantity] = useState(Quantity || 1);
 
 	const onAdd = () => {
@@ -113,3 +98,19 @@ export default function ProductDetail({
 		</main>
 	);
 }
+
+ProductDetail.propTypes = {
+	productSelected: PropTypes.shape({
+		id: PropTypes.string,
+		name: PropTypes.string,
+		price: PropTypes.number,
+		image: PropTypes.string,
+		description: PropTypes.string,
+		category: PropTypes.string,
+		available: PropTypes.bool,
+		stock: PropTypes.number,
+		quantity: PropTypes.number,
+	}).isRequired,
+	addToCart: PropTypes.func.isRequired,
+	Quantity: PropTypes.number,
+};
