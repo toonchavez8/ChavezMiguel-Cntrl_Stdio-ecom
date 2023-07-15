@@ -15,18 +15,27 @@ ProductCard.propTypes = {
 };
 
 export default function ProductCard({ product }) {
+	const price = product.price.toLocaleString("en-US", {
+		style: "currency",
+		currency: "MXN",
+	});
+
 	return (
-		<div className="card w-96 bg-base-100 shadow-xl">
-			<figure className="px-10 pt-10">
-				<img src={product.image} alt="Shoes" className="rounded-xl" />
+		<div className="card w-full  bg-base-100 shadow-xl">
+			<figure className="px-5 pt-5 aspect-w-1 aspect-h-1">
+				<img
+					src={product.image}
+					alt="Shoes"
+					className="rounded-xl object-cover aspect-square bg-base-200"
+				/>
 			</figure>
 			<div className="card-body items-center text-center">
-				<h2 className="card-title">{product.name}</h2>
-				<p>{product.description}</p>
+				<h2 className="card-title text-xl">{product.name}</h2>
+				<p className="text-base">{price}</p>
 
 				<div className="card-actions">
 					<Link to={`/itemdetail/${product.id}`}>
-						<button className="btn btn-primary">Buy Now</button>
+						<button className="btn btn-primary">Ver equipo</button>
 					</Link>
 				</div>
 			</div>

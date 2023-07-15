@@ -1,0 +1,12 @@
+.disc {
+	list-style: none;
+}
+
+.disc li {
+	@apply pl-6;
+	/* Add padding to the left of the li element */
+}
+
+.disc li::before {
+	@apply text-accent !important;
+}
