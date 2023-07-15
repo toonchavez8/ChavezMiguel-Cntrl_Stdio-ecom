@@ -1,42 +1,44 @@
 import { useParams } from "react-router";
 import ProductDetail from "./ProductDetail";
-import { useEffect, useState } from "react";
-import { equipo } from "../../data/productMock";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../context/cartContext";
+import { getDoc, doc, collection } from "firebase/firestore";
+import { DATABASE } from "../../fireBaseConfig";
 
-export default function ProductDetailContainter() {
+export default function ProductDetailContainer() {
 	const [productSelected, setProductSelected] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
 	const { id } = useParams();
 
+	const { addToCart, getTotalQuanityById } = useContext(CartContext);
+
+	const Quantity = getTotalQuanityById(id);
+
 	useEffect(() => {
-		let findProduct = equipo.find((product) => product.id == id);
+		let itemCollection = collection(DATABASE, "equipo");
+		let refDoc = doc(itemCollection, id);
 
-		const getProduct = new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(findProduct);
-			}, 2000);
-		});
-
-		getProduct
-			.then((product) => {
-				setProductSelected(product);
-				console.log("Product retrieved:", product);
+		getDoc(refDoc)
+			.then((res) => {
+				setProductSelected({ ...res.data(), id: res.id });
 			})
-			.catch((error) => {
-				console.error("Error retrieving product:", error);
+			.catch((err) => {
+				console.log(err);
 			})
-			.finally(() => {
-				setIsLoading(false);
-			});
+			.finally(() => setIsLoading(false));
 	}, [id]);
 
 	return (
-		<div>
+		<div className="flex justify-center items-center h-full">
 			{isLoading ? (
-				<span className="loading loading-spinner loading-md"></span>
+				<span className="loading loading-spinner  loading-lg text-primary "></span>
 			) : (
-				<ProductDetail productSelected={productSelected} />
+				<ProductDetail
+					productSelected={productSelected}
+					addToCart={addToCart}
+					Quantity={Quantity}
+				/>
 			)}
 		</div>
 	);

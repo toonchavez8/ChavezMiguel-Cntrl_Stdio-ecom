@@ -10,6 +10,8 @@ import Cicloramas from "../pages/Cicloramas";
 import Contacto from "../pages/Contacto";
 import ProductDetailContainter from "../pages/productDetail/ProductDetailContainter";
 import ProductListContainer from "../components/common/ProductList/ProductListContainer";
+import CartPage from "../pages/CartPage";
+import CheckoutContainer from "../pages/Checkout/CheckoutContainer";
 
 export const menuRoutes = [
 	{
@@ -72,5 +74,15 @@ export const menuRoutes = [
 		id: 12,
 		path: "/itemdetail/category/:category",
 		Element: ProductListContainer,
+	},
+	{
+		id: 13,
+		path: "/cart",
+		Element: CartPage,
+	},
+	{
+		id: 14,
+		path: "/checkout",
+		Element: CheckoutContainer,
 	},
 ];
