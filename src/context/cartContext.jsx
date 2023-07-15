@@ -85,6 +85,20 @@ const CartContextProvider = ({ children }) => {
 		setCartItems(newArray);
 	};
 
+	const getTotalPrice = () => {
+		let subtotal = cartItems.reduce((acc, curr) => {
+			return acc + curr.price * curr.quantity;
+		}, 0);
+		let tax = subtotal * 0.16;
+		let total = subtotal + tax;
+
+		return {
+			subtotal,
+			tax,
+			total,
+		};
+	};
+
 	// Memoize the context value to prevent unnecessary re-renders
 	let contextValue = useMemo(() => {
 		return {
@@ -94,6 +108,7 @@ const CartContextProvider = ({ children }) => {
 			removeProductById,
 			getTotalQuanityById,
 			changeProductQuantityInCart,
+			getTotalPrice,
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cartItems]);
