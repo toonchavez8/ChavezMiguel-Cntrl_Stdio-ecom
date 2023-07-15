@@ -2,28 +2,14 @@ import PropTypes from "prop-types";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-ProductDetail.propTypes = {
-	productSelected: PropTypes.shape({
-		id: PropTypes.number.isRequired,
-		name: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		image: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		category: PropTypes.string.isRequired,
-		available: PropTypes.bool.isRequired,
-		stock: PropTypes.number.isRequired,
-		quantity: PropTypes.number.isRequired,
-	}).isRequired,
-	addToCart: PropTypes.func.isRequired,
-	Quantity: PropTypes.number,
-};
+import Swal from "sweetalert2";
 
 export default function ProductDetail({
 	productSelected,
 	addToCart,
 	Quantity,
 }) {
+	console.log("productSelected", productSelected);
 	const [quantity, setQuantity] = useState(Quantity || 1);
 
 	const onAdd = () => {
@@ -33,6 +19,15 @@ export default function ProductDetail({
 		};
 
 		addToCart(data);
+		Swal.fire({
+			position: "center",
+			icon: "success",
+			title: `${productSelected.name} agregado al carrito`,
+			showConfirmButton: true,
+			timer: 1500,
+			// custum button color
+			confirmButtonColor: "#151ff9",
+		});
 	};
 
 	const handleDecreaseQuantity = () => {
@@ -113,3 +108,19 @@ export default function ProductDetail({
 		</main>
 	);
 }
+
+ProductDetail.propTypes = {
+	productSelected: PropTypes.shape({
+		id: PropTypes.string,
+		name: PropTypes.string,
+		price: PropTypes.number,
+		image: PropTypes.string,
+		description: PropTypes.string,
+		category: PropTypes.string,
+		available: PropTypes.bool,
+		stock: PropTypes.number,
+		quantity: PropTypes.number,
+	}).isRequired,
+	addToCart: PropTypes.func.isRequired,
+	Quantity: PropTypes.number,
+};

@@ -1,4 +1,4 @@
-import { useState, createContext, useMemo } from "react";
+import { useState, createContext, useMemo, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -6,7 +6,15 @@ export const CartContext = createContext();
 // eslint-disable-next-line react/prop-types
 const CartContextProvider = ({ children }) => {
 	// State to store the cart items
-	const [cartItems, setCartItems] = useState([]);
+	const [cartItems, setCartItems] = useState(() => {
+		const storedCartItems = localStorage.getItem("cartItems");
+		return storedCartItems ? JSON.parse(storedCartItems) : [];
+	});
+
+	// use effect to save cart into local storage
+	useEffect(() => {
+		localStorage.setItem("cartItems", JSON.stringify(cartItems));
+	}, [cartItems]);
 
 	// Function to add an item to the cart
 	const addToCart = (newProduct) => {
@@ -57,7 +65,7 @@ const CartContextProvider = ({ children }) => {
 	};
 
 	const getTotalQuanityById = (id) => {
-		let product = cartItems.find((prod) => prod.id === +id);
+		let product = cartItems.find((prod) => prod.id === id);
 		return product?.quantity;
 	};
 
@@ -77,6 +85,20 @@ const CartContextProvider = ({ children }) => {
 		setCartItems(newArray);
 	};
 
+	const getTotalPrice = () => {
+		let subtotal = cartItems.reduce((acc, curr) => {
+			return acc + curr.price * curr.quantity;
+		}, 0);
+		let tax = subtotal * 0.16;
+		let total = subtotal + tax;
+
+		return {
+			subtotal,
+			tax,
+			total,
+		};
+	};
+
 	// Memoize the context value to prevent unnecessary re-renders
 	let contextValue = useMemo(() => {
 		return {
@@ -86,6 +108,7 @@ const CartContextProvider = ({ children }) => {
 			removeProductById,
 			getTotalQuanityById,
 			changeProductQuantityInCart,
+			getTotalPrice,
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cartItems]);

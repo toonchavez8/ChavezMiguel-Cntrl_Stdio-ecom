@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 ProductList.propTypes = {
 	products: PropTypes.arrayOf(
 		PropTypes.shape({
-			id: PropTypes.number.isRequired,
+			id: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired,
 			price: PropTypes.number.isRequired,
 			image: PropTypes.string.isRequired,
-			category: PropTypes.string.isRequired,
+			category: PropTypes.string,
 			available: PropTypes.bool.isRequired,
 			quantity: PropTypes.number.isRequired,
 		})

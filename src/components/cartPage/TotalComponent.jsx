@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // Proptype type declaration
 TotalComponent.propTypes = {
-	cart: PropTypes.shape({
-		price: PropTypes.number.isRequired,
-		quantity: PropTypes.number.isRequired,
-	}).isRequired,
+	cart: PropTypes.arrayOf(
+		PropTypes.shape({
+			price: PropTypes.number.isRequired,
+			quantity: PropTypes.number.isRequired,
+		})
+	).isRequired,
 	clearCart: PropTypes.func.isRequired,
 };
 
@@ -57,9 +60,12 @@ export default function TotalComponent({ cart, clearCart }) {
 					)}
 				</div>
 			</div>
-			<button className="mt-6 w-full rounded-md bg-primary py-1.5 font-medium text-blue-50 hover:bg-accent">
+			<Link
+				to="/checkout"
+				className="btn  mt-6 w-full rounded-md bg-primary py-1.5 font-medium text-blue-50 hover:bg-accent"
+			>
 				Rentar
-			</button>
+			</Link>
 
 			<button
 				className="mt-6 w-full rounded-md bg-neutral-content py-1.5 font-medium bg-opacity-50 hover:bg-secondary"
