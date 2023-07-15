@@ -3,16 +3,10 @@
 }
 
 .disc li {
-	@apply pl-6; /* Add padding to the left of the li element */
+	@apply pl-6;
+	/* Add padding to the left of the li element */
 }
 
 .disc li::before {
-	content: "\2022";
-	@apply text-accent;
-	font-weight: bold;
-	display: inline;
-	width: 5em;
-	height: 4em;
-	margin-left: -1em;
-	font-size: 1.5em;
+	@apply text-accent !important;
 }
