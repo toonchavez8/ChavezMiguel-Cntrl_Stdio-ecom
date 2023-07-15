@@ -1,6 +1,5 @@
 export const equipo = [
 	{
-		id: 1,
 		name: "Flashes Profoto D1 Air 500W",
 		price: 1200,
 		description: "Flashes Profoto D1 Air 500W con 2x Softbox Profoto 3x4",
@@ -12,7 +11,6 @@ export const equipo = [
 		stock: 3,
 	},
 	{
-		id: 2,
 		name: "Flashes Profoto D1 Air 1000W",
 		price: 1500,
 		description: "Flashes Profoto D1 Air 1000W con 2x Softbox Profoto 3x4",
@@ -24,7 +22,6 @@ export const equipo = [
 		stock: 1,
 	},
 	{
-		id: 3,
 		name: "Aputure c300d II",
 		price: 1000,
 		description: "Aputure c300d II con tripie",
@@ -36,7 +33,6 @@ export const equipo = [
 		stock: 3,
 	},
 	{
-		id: 4,
 		name: "Aputure c120d II",
 		price: 800,
 		description: "Aputure c120d II con tripie",
@@ -48,7 +44,6 @@ export const equipo = [
 		stock: 1,
 	},
 	{
-		id: 5,
 		name: "Boom Manfrotto",
 		price: 300,
 		description: "Boom Manfrotto para carcar luces",
@@ -60,7 +55,6 @@ export const equipo = [
 		stock: 1,
 	},
 	{
-		id: 6,
 		name: "Cicloramas de color",
 		price: 300,
 		description: "Cicloramas de color 2x2",
