@@ -1,3 +1,5 @@
+import "./StudioHighlights.css";
+
 export default function StudioHighlights() {
 	return (
 		<section className="flex flex-col w-full items-center justify-center">
@@ -17,7 +19,7 @@ export default function StudioHighlights() {
 						Tu renta incluye
 					</p>
 
-					<ul className="flex flex-wrap m-0 p-0">
+					<ul className="disc | flex flex-wrap m-0 p-0 ">
 						<li className="w-full sm:w-1/2  lg:w-1/4  p-2 md:p-0 md:px-3">
 							Ciclorama blanco y negro
 						</li>
