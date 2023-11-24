@@ -24,7 +24,7 @@ export default function NavBar() {
 	return (
 		<header
 			className={`drawer z-50 fixed transition ${
-				navbarBg ? "bg-gradient-to-b  from-[#0611e56b] from-0%" : ""
+				navbarBg ? "bg-gradient-to-b  from-[#0611e5] from-25%" : ""
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
