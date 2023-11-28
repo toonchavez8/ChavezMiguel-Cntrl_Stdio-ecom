@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import heroImg from "../../../assets/landing/Hero_Banner.png";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import Carousel from "../Carusel/Carusel.jsx";
 
 export default function Hero(
 	{ heroTaglines } // heroTaglines is an array of strings
@@ -22,10 +23,10 @@ export default function Hero(
 	const heroTagline = heroTaglines[taglineIndex];
 
 	return (
-		<section className="relative ">
+		<section className="relative  w-full">
 			<div className="absolute  z-10  text-white uppercase   inset-auto top-0 left-1/4  translate-y-full  ">
 				<h1 className="ff-libre-baskerville  min-h-fit  text-xl  sm:text-4xl lg:text-6xl  whitespace-pre-line ">
-					{heroTagline}
+					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
 				<div className="flex gap-3 flex-col sm:flex-row ff-nunito pt-5 ">
 					<button className="btn btn-outline btn-primary border-2 group">
@@ -39,53 +40,15 @@ export default function Hero(
 					</button>
 				</div>
 			</div>
-
-			<figure className=" carousel w-full h-128 bg-black ">
-				<div id="slide1" className="carousel-item relative w-full">
-					<img src={heroImg} className="w-full object-cover opacity-75" />
-					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#slide4" className="btn btn-circle">
-							❮
-						</a>
-						<a href="#slide2" className="btn btn-circle">
-							❯
-						</a>
-					</div>
-				</div>
-				<div id="slide2" className="carousel-item relative w-full">
-					<img src={heroImg} className="w-full object-cover opacity-75" />
-					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#slide1" className="btn btn-circle">
-							❮
-						</a>
-						<a href="#slide3" className="btn btn-circle">
-							❯
-						</a>
-					</div>
-				</div>
-				<div id="slide3" className="carousel-item relative w-full">
-					<img src={heroImg} className="w-full object-cover opacity-75" />
-					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#slide2" className="btn btn-circle">
-							❮
-						</a>
-						<a href="#slide4" className="btn btn-circle">
-							❯
-						</a>
-					</div>
-				</div>
-				<div id="slide4" className="carousel-item relative w-full">
-					<img src={heroImg} className="w-full object-cover opacity-75" />
-					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#slide3" className="btn btn-circle">
-							❮
-						</a>
-						<a href="#slide1" className="btn btn-circle">
-							❯
-						</a>
-					</div>
-				</div>
-			</figure>
+			<Carousel
+				images={[
+					{ src: heroImg, alt: "Hero Banner" },
+					{
+						src: "/CloudAssets/Estudio-1.png",
+						alt: "Hero Banner",
+					},
+				]}
+			/>
 		</section>
 	);
 }

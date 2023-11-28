@@ -4,10 +4,10 @@ import StudioHighlights from "../components/landingPage/studioHighlights/StudioH
 
 export default function LandingPage() {
 	const heroTaglines = [
-		`central es \n renta de estudio`,
-		`central es \n fotografía y video`,
-		`central es \n producción audiovisual`,
-		`central es \n venta de cicloramas`,
+		`central es \n <strong>renta de estudio</strong>`,
+		`central es \n <strong>fotografía y video</strong>`,
+		`central es \n <strong>producción audiovisual</strong>`,
+		`central es \n <strong>venta de cicloramas</strong>`,
 	];
 
 	return (
