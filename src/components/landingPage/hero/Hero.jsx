@@ -24,7 +24,7 @@ export default function Hero(
 
 	return (
 		<section className="relative  w-full">
-			<div className="absolute  z-10  text-white uppercase   inset-auto top-0 left-1/4  translate-y-full  ">
+			<div className="absolute  z-10  text-white uppercase   inset-auto top-0  left-1/3  translate-y-full ">
 				<h1 className="ff-barlow  min-h-fit  text-xl  sm:text-4xl lg:text-6xl  whitespace-pre-line ">
 					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
