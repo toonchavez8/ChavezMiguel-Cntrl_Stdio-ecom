@@ -10,7 +10,7 @@ export default function NavBar() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const isNavbarScrolled = window.scrollY >= 200; // Adjust the scroll position threshold as needed
+			const isNavbarScrolled = window.scrollY >= 100; // Adjust the scroll position threshold as needed
 			setNavbarBg(isNavbarScrolled);
 		};
 
@@ -23,8 +23,10 @@ export default function NavBar() {
 
 	return (
 		<header
-			className={`drawer z-50 fixed transition ${
-				navbarBg ? "bg-gradient-to-b  from-[#0611e56b] from-0%" : ""
+			className={`drawer z-50 fixed transition-all duration-300 ease-in-out ${
+				navbarBg
+					? "bg-gradient-to-b  from-[#0611e5] from-05% to-transparent bg-opacity-100"
+					: "bg-opcacity-0"
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
