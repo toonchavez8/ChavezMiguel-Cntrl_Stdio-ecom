@@ -1,0 +1,17 @@
+<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-park-twotone:barber-brush">
+<g id="Mask group">
+<mask id="mask0_33_85" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="5" y="1" width="20" height="28">
+<g id="Group">
+<g id="Group_2">
+<path id="Vector" d="M19.0586 15.3403H10.6876C10.6876 15.3403 8.23272 20.0875 12.2568 22.0121C14.833 23.5518 10.6876 27.6578 10.6876 27.6578H19.0586C19.0586 27.6578 14.9137 23.1669 17.4893 22.0121C21.5134 20.0875 19.0586 15.3403 19.0586 15.3403Z" stroke="white" stroke-width="2.4635" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M16.105 15.3404L17.3367 7.94995M13.6415 15.3404L12.4097 7.94995M23.4955 6.7182L19.1843 15.3404H10.5621L6.25098 6.7182C6.25098 6.7182 8.0986 3.02295 14.8732 3.02295C21.6478 3.02295 23.4955 6.7182 23.4955 6.7182Z" stroke="white" stroke-width="2.4635" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_33_85)">
+<path id="Vector_3" d="M0.708008 0.559326H30.27V30.1213H0.708008V0.559326Z" fill="#1E1E1E"/>
+</g>
+</g>
+</g>
+</svg>
