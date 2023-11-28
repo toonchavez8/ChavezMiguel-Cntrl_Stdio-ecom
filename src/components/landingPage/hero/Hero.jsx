@@ -47,6 +47,10 @@ export default function Hero(
 						src: "/CloudAssets/Estudio-1.png",
 						alt: "Hero Banner",
 					},
+					{
+						src: "/CloudAssets/Foro-1.jpg",
+						alt: "Hero Banner",
+					},
 				]}
 			/>
 		</section>
