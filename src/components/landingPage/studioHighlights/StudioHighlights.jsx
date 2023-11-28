@@ -5,7 +5,7 @@ import StudioIcon from "../../../assets/icons/studio-backdrop.svg";
 import PortaciloramaIcon from "../../../assets/icons/portaciclorama.svg";
 import MakeupIcon from "../../../assets/icons/makeup.svg";
 import CateringIcon from "../../../assets/icons/dish.svg";
-import TableIcon from "../../../assets/icons/Table.svg";
+import TableIcon from "../../../assets/icons/table.svg";
 import ChairIcon from "../../../assets/icons/chair.svg";
 import StairsIcon from "../../../assets/icons/ladder.svg";
 import CoffeeIcon from "../../../assets/icons/coffee.svg";
