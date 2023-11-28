@@ -4,7 +4,7 @@ export default function StudioHighlights() {
 	return (
 		<section className="flex flex-col w-full items-center justify-center">
 			<div className="flex flex-col md:flex-row gap-8 items-center justify-center w-full max-w-5xl mt-12 md:mt-0">
-				<h2 className=" text-xl max-w-lg md:text-3xl md:max-w-3xl ff-libre-baskerville px-6 text">
+				<h2 className=" text-xl max-w-lg md:text-3xl md:max-w-3xl ff-barlow px-6 text">
 					El lugar ideal para tu producción de foto o video, con la mejor
 					ubicación en Guadalajara.
 				</h2>

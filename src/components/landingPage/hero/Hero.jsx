@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import heroImg from "../../../assets/landing/Hero_Banner.png";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import Carousel from "../Carusel/Carusel.jsx";
+import Carousel from "../../common/Carusel/Carusel.jsx";
 
 export default function Hero(
 	{ heroTaglines } // heroTaglines is an array of strings
@@ -25,7 +25,7 @@ export default function Hero(
 	return (
 		<section className="relative  w-full">
 			<div className="absolute  z-10  text-white uppercase   inset-auto top-0 left-1/4  translate-y-full  ">
-				<h1 className="ff-libre-baskerville  min-h-fit  text-xl  sm:text-4xl lg:text-6xl  whitespace-pre-line ">
+				<h1 className="ff-barlow  min-h-fit  text-xl  sm:text-4xl lg:text-6xl  whitespace-pre-line ">
 					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
 				<div className="flex gap-3 flex-col sm:flex-row ff-nunito pt-5 ">

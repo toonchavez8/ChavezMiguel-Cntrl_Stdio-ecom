@@ -1,4 +1,7 @@
 import ProductListContainer from "../components/common/ProductList/ProductListContainer";
+import ContactSection from "../components/landingPage/Contact/ContactSection.jsx";
+import CycrloramaSection from "../components/landingPage/CycloramaSection/CycrloramaSection.jsx";
+import EspaciosDisponibles from "../components/landingPage/EspaciosDispnibles/EspaciosDisponibles.jsx";
 import Hero from "../components/landingPage/hero/Hero";
 import StudioHighlights from "../components/landingPage/studioHighlights/StudioHighlights";
 
@@ -13,8 +16,11 @@ export default function LandingPage() {
 	return (
 		<main className="flex flex-col w-full items-center justify-center">
 			<Hero heroTaglines={heroTaglines} />
+			<EspaciosDisponibles />
 			<StudioHighlights />
 			<ProductListContainer />
+			<CycrloramaSection />
+			<ContactSection />
 		</main>
 	);
 }
