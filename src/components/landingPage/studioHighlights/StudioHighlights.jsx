@@ -12,7 +12,7 @@ import CoffeeIcon from "../../../assets/icons/coffee.svg";
 import WaterDispenserIcon from "../../../assets/icons/water.svg";
 import WifiIcon from "../../../assets/icons/wifi.svg";
 import FridgeIcon from "../../../assets/icons/fridge.svg";
-import BathroomIcon from "../../../assets/icons/bathroom.svg";
+import BathroomIcon from "../../../assets/icons/bathroom.png";
 import PortableClosetsIcon from "../../../assets/icons/hanger.svg";
 const StudioHighlights = () => {
 	return (

@@ -20,7 +20,7 @@ ProductList.propTypes = {
 
 export default function ProductList({ products }) {
 	return (
-		<section className="mt-16 max-w-7xl">
+		<section className="mt-24 max-w-7xl">
 			<h1 className="text-center ff-barlow text-3xl font-bold mx-auto rounded px-2 space-x-1">
 				<span className="text-secondary bg-accent rounded px-3 py-1 text-3xl">
 					+{" "}
