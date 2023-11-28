@@ -1,0 +1,19 @@
+/* Carousel.css */
+
+.carousel-item {
+	transition: transform 0.5s ease; /* Adjust the duration and timing function as needed */
+}
+
+.carousel-item.hidden {
+	transform: translateX(-100%); /* Slide out to the left */
+}
+
+.carousel-item.current {
+	transform: translateX(0); /* Slide in from the right */
+}
+
+.carousel-item.hidden.current {
+	transform: translateX(
+		100%
+	); /* Slide out to the right when transitioning to the next image */
+}
