@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
 
-const SpaceCard = ({ imageSrc, title, area, operationHours, price, link }) => {
+const SpaceCard = ({
+	imageSrc,
+	title,
+	area,
+	operationHours,
+	price,
+	link,
+	subLine,
+}) => {
 	return (
 		<a
 			href={link}
@@ -18,7 +26,12 @@ const SpaceCard = ({ imageSrc, title, area, operationHours, price, link }) => {
 						<small className="text-stone-900">{area}</small>
 						<p className="text-stone-900">{operationHours}</p>
 					</div>
-					<p className="btn btn-primary ">{price}</p>
+					<p className="btn btn-primary flex flex-col justify-center items-center text-base-100 gap-0 ">
+						{price}
+						<span className="text-stone-900 text-xs text-base-300">
+							{subLine}
+						</span>
+					</p>
 				</div>
 			</article>
 		</a>
@@ -32,6 +45,7 @@ SpaceCard.propTypes = {
 	operationHours: PropTypes.string.isRequired,
 	price: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
+	subLine: PropTypes.string.isRequired,
 };
 
 export default SpaceCard;

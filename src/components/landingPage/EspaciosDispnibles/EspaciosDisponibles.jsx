@@ -16,7 +16,8 @@ const EspaciosDisponibles = () => {
 					title="Ciclorama infinito"
 					area="30 m2"
 					operationHours="Horario de operación 7 am - 9 pm"
-					price="Desde $350 / hora"
+					price="Desde $566 / hora"
+					subLine="3 horas minimo"
 					link="/renta/foro"
 				/>
 				<SpaceCard
@@ -24,7 +25,8 @@ const EspaciosDisponibles = () => {
 					title="Estudio"
 					area="30 m2"
 					operationHours="Horario de operación 7 am - 9 pm"
-					price="Desde $350 / hora"
+					price="Desde $433 / hora"
+					subLine="3 horas minimo"
 					link="/renta/estudio"
 				/>
 				<SpaceCard
@@ -33,7 +35,7 @@ const EspaciosDisponibles = () => {
 					area="30 m2"
 					operationHours="Disponible como adicional en la
                     renta del estudio o ciclorama infinito"
-					price="Desde $350 / hora"
+					price="Desde $300 / hora"
 					link="/renta"
 				/>
 			</figure>
