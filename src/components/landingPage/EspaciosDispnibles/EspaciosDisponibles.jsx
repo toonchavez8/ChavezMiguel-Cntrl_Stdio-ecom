@@ -1,4 +1,6 @@
 import SpaceCard from "../../common/SpaceCard/SpaceCard.jsx";
+import ForoImg from "../../../assets/Foro-1.jpg";
+import EstudioImg from "../../../assets/Estudio-1.png";
 
 const EspaciosDisponibles = () => {
 	return (
@@ -12,7 +14,7 @@ const EspaciosDisponibles = () => {
 			</h2>
 			<figure className=" px-8 flex flex-wrap md:flex-row gap justify-center items-baseline md:justify-between w-full lg:px-4">
 				<SpaceCard
-					imageSrc="/CloudAssets/Foro-1.jpg"
+					imageSrc={ForoImg}
 					title="Ciclorama infinito"
 					area="30 m2"
 					operationHours="Horario de operación 7 am - 9 pm"
@@ -21,7 +23,7 @@ const EspaciosDisponibles = () => {
 					link="/renta/foro"
 				/>
 				<SpaceCard
-					imageSrc="/CloudAssets/Estudio-1.png"
+					imageSrc={EstudioImg}
 					title="Estudio"
 					area="30 m2"
 					operationHours="Horario de operación 7 am - 9 pm"
@@ -30,13 +32,13 @@ const EspaciosDisponibles = () => {
 					link="/renta/estudio"
 				/>
 				<SpaceCard
-					imageSrc="/CloudAssets/Foro-1.jpg"
+					imageSrc={ForoImg}
 					title="Cocina"
 					area="30 m2"
 					operationHours="Disponible como adicional en la
                     renta del estudio o ciclorama infinito"
 					price="Desde $300 / hora"
-					link="/renta"
+					link="/renta/cocina"
 				/>
 			</figure>
 		</section>
