@@ -12,9 +12,9 @@ const SpaceCard = ({
 	return (
 		<a
 			href={link}
-			className="hover:scale-105 transition duration-200 ease-in-out"
+			className="hover:scale-105 transition duration-200 ease-in-out "
 		>
-			<article className="w-96 flex flex-col justify-center items-center gap-4 ff-barlow">
+			<article className=" max-w-sm lg:w-96 flex flex-col justify-center items-center gap-4 ff-barlow px-4 py-4 ">
 				<img
 					src={imageSrc}
 					alt={title}
@@ -28,9 +28,11 @@ const SpaceCard = ({
 					</div>
 					<p className="btn btn-primary flex flex-col justify-center items-center text-base-100 gap-0 ">
 						{price}
-						<span className="text-stone-900 text-xs text-base-300">
-							{subLine}
-						</span>
+						{subLine ? (
+							<span className=" text-xs text-base-300">{subLine}</span>
+						) : (
+							""
+						)}
 					</p>
 				</div>
 			</article>
@@ -45,7 +47,7 @@ SpaceCard.propTypes = {
 	operationHours: PropTypes.string.isRequired,
 	price: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
-	subLine: PropTypes.string.isRequired,
+	subLine: PropTypes.string,
 };
 
 export default SpaceCard;
