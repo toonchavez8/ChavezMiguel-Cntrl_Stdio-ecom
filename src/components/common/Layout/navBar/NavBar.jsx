@@ -52,9 +52,9 @@ export default function NavBar() {
 					</div>
 					<Link
 						to={"/"}
-						className="btn btn-primary p-0 rounded-none h-28 aspect-square ms-0  lg:ms-28 sm:me-auto"
+						className="btn btn-primary p-0 rounded-none h- lg:h-28 aspect-square ms-0  lg:ms-28 sm:me-auto"
 					>
-						<img src={centralLogo} alt="Logo" className="mx-auto" />
+						<img src={centralLogo} alt="Logo" className="mx-auto w-full" />
 					</Link>
 					<div className="hidden lg:block uppercase  mx-auto">
 						<ul className="menu menu-horizontal gap-1">

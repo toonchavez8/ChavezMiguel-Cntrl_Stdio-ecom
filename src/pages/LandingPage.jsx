@@ -15,7 +15,7 @@ export default function LandingPage() {
 	];
 
 	return (
-		<main className="flex flex-col w-full items-center justify-center bg-white ">
+		<main className="flex flex-col w-full items-center justify-center bg-white debug">
 			<Hero heroTaglines={heroTaglines} />
 			<EspaciosDisponibles />
 			<StudioHighlights />

@@ -55,7 +55,7 @@ const CycloramaData = [
 
 const CycrloramaSection = () => {
 	return (
-		<section className="w-full flex  flex-col justify-center items-center max-w-7xl my-16 p-2 gap-10 md:gap-18">
+		<section className="w-full flex  flex-col justify-center items-center max-w-7xl my-16 p-2 gap-2 md:gap-10 md:gap-18">
 			<h2 className=" text-5xl font-semibold ff-barlow leading-10 text-center w-full max-w-lg">
 				Ármate con
 				<span className="text-accent"> cicloramas </span>
