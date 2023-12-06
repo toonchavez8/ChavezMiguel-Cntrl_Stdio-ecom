@@ -1,6 +1,8 @@
 import "./Hero.css";
 import { useEffect, useState } from "react";
 import heroImg from "../../../assets/landing/Hero_Banner.png";
+import estudio from "../../../assets/landing/Estudio-1.png";
+import ForoImg from "../../../assets/landing/Foro-1.jpg";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Carousel from "../../common/Carusel/Carusel.jsx";
@@ -44,11 +46,11 @@ export default function Hero(
 				images={[
 					{ src: heroImg, alt: "Hero Banner" },
 					{
-						src: "/CloudAssets/Estudio-1.png",
+						src: estudio,
 						alt: "Hero Banner",
 					},
 					{
-						src: "/CloudAssets/Foro-1.jpg",
+						src: ForoImg,
 						alt: "Hero Banner",
 					},
 				]}

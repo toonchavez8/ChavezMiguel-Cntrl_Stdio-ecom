@@ -1,6 +1,6 @@
 import SpaceCard from "../../common/SpaceCard/SpaceCard.jsx";
-import ForoImg from "../../../assets/Foro-1.jpg";
-import EstudioImg from "../../../assets/Estudio-1.png";
+import ForoImg from "../../../assets/landing/Foro-1.jpg";
+import EstudioImg from "../../../assets/landing/Estudio-1.png";
 
 const EspaciosDisponibles = () => {
 	return (

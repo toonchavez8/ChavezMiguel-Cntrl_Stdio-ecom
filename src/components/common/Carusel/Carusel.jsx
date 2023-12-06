@@ -68,18 +68,18 @@ const Carousel = ({ images }) => {
 
 	return (
 		<section className="carousel-container relative">
-			<figure className="carousel w-full h-128 bg-black relative">
+			<figure className="carousel w-full h-128 bg-black relative group">
 				{images.map((image, index) => (
 					<div
 						key={image.src}
-						className={`carousel-item relative w-full ${
+						className={`carousel-item relative w-full opacity-50 group-hover:opacity-100 ease transition-all ${
 							index === currentIndex ? "current" : "hidden"
 						}`}
 					>
 						<img
 							src={image.src}
 							alt={image.alt}
-							className="w-full object-cover opacity-75"
+							className="w-full object-cover "
 						/>
 					</div>
 				))}
