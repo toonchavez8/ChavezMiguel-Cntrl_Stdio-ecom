@@ -1,73 +1,57 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai";
 import PropTypes from "prop-types";
 
 const CicloramaWidget = ({ ciclromaData }) => {
 	const [selectedRoll, setSelectedRoll] = useState(ciclromaData[0]);
-	const [activeIndex, setActiveIndex] = useState(0);
-	const rollContainerRef = useRef(null);
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setActiveIndex((prevIndex) => (prevIndex + 1) % ciclromaData.length);
-			handleRollSelect(activeIndex);
-		}, 3000);
-
-		return () => clearInterval(interval);
-	}, [ciclromaData.length, activeIndex]);
+	const [isHovered, setIsHovered] = useState(false);
 
 	const handleRollSelect = (index) => {
 		setSelectedRoll(ciclromaData[index]);
-		setActiveIndex(index);
-		rollContainerRef.current.scrollTop = index * 50; // Adjust the scroll amount as needed
-	};
-
-	const handleScroll = (direction) => {
-		const scrollAmount = 200; // Adjust the scroll amount as needed
-		if (direction === "up") {
-			rollContainerRef.current.scrollTop -= scrollAmount;
-		} else {
-			rollContainerRef.current.scrollTop += scrollAmount;
-		}
 	};
 
 	return (
-		<article className="ff-nunito flex flex-col justify-center items-center w-full max-w-xl prose">
-			<figure className="flex h-min  ">
-				<div className="">
+		<article className="ff-nunito flex flex-col justify-center items-center w-full max-w-xl prose ">
+			<figure
+				className="flex flex-col-reverse lg:flex-row w-full justify-center items-center relative"
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
+			>
+				<div className="flex  lg:flex-col w-full justify-center items-center max-w-md prose ff-nunito px-4">
 					<AiOutlineCaretUp
-						className="cursor-pointer mx-auto"
+						className=" -rotate-90 lg:rotate-0 cursor-pointer mx-auto min-w-max"
 						size={30}
-						onClick={() => handleScroll("up")}
 					/>
-					<div
-						ref={rollContainerRef}
-						className=" overflow-hidden h-80 max-h-xl  overflow-y-scroll  no-scrollbar relative"
-					>
+					<div className="flex flex-row lg:flex-col-reverse gap-2 m-0 p-0 lg:gap-0 overflow-x-scroll lg:overflow-y-scroll lg:h-80  max-h-xl no-scrollbar ">
 						{ciclromaData.map((data, index) => (
 							<img
 								key={data.title}
 								src={data.roll}
 								alt={`Roll ${data.title}`}
 								role="presentation"
-								className={`cursor-pointer max-h-20 aspect-w-4 aspect-h-5 ${
-									index === activeIndex ? "border-2 rounded bg-primary" : ""
+								className={` cursor-pointer  max-h-20 aspect-w-4 aspect-h-5 ${
+									index === ciclromaData.indexOf(selectedRoll)
+										? "border-2 rounded bg-primary"
+										: ""
 								}`}
 								onClick={() => handleRollSelect(index)}
 							/>
 						))}
 					</div>
 					<AiOutlineCaretDown
-						className="cursor-pointer mx-auto"
+						className=" -rotate-90 lg:rotate-0 cursor-pointer mx-auto min-w-max"
 						size={30}
-						onClick={() => handleScroll("down")}
 					/>
 				</div>
-
+				{isHovered && (
+					<div className="badge badge-primary badge-outline absolute top-0 left-1/2 p-2">
+						{selectedRoll.title}
+					</div>
+				)}
 				<img
 					src={selectedRoll.ciclroma}
 					alt={`Ciclorama ${selectedRoll.title}`}
-					className="max-h-96 w-full  object-cover"
+					className="max-h-96 w-full  object-cover  flex-1 "
 				/>
 			</figure>
 

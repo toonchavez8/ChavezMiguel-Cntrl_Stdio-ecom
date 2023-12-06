@@ -68,30 +68,30 @@ const Carousel = ({ images }) => {
 
 	return (
 		<section className="carousel-container relative">
-			<figure className="carousel w-full h-128 bg-black relative">
+			<figure className="carousel w-full h-128 bg-black relative group">
 				{images.map((image, index) => (
 					<div
 						key={image.src}
-						className={`carousel-item relative w-full ${
+						className={`carousel-item relative w-full opacity-50 group-hover:opacity-100 ease transition-all ${
 							index === currentIndex ? "current" : "hidden"
 						}`}
 					>
 						<img
 							src={image.src}
 							alt={image.alt}
-							className="w-full object-cover opacity-75"
+							className="w-full object-cover "
 						/>
 					</div>
 				))}
 				<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 					<button
-						className="btn btn-circle btn-outline btn-accent"
+						className="btn btn-circle w-4 lg:w-12  btn-outline btn-accent"
 						onClick={handlePrev}
 					>
 						<FaChevronLeft />
 					</button>
 					<button
-						className="btn btn-circle btn-outline btn-accent"
+						className="btn btn-circle w-4 lg:w-12 btn-outline btn-accent"
 						onClick={handleNext}
 					>
 						<FaChevronRight />
