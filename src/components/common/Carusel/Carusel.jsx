@@ -85,13 +85,13 @@ const Carousel = ({ images }) => {
 				))}
 				<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 					<button
-						className="btn btn-circle btn-outline btn-accent"
+						className="btn btn-circle w-4 lg:w-12  btn-outline btn-accent"
 						onClick={handlePrev}
 					>
 						<FaChevronLeft />
 					</button>
 					<button
-						className="btn btn-circle btn-outline btn-accent"
+						className="btn btn-circle w-4 lg:w-12 btn-outline btn-accent"
 						onClick={handleNext}
 					>
 						<FaChevronRight />
