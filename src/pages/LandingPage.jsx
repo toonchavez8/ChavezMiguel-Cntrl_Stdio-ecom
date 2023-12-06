@@ -15,14 +15,14 @@ export default function LandingPage() {
 	];
 
 	return (
-		<main className="flex flex-col w-full items-center justify-center bg-white debug">
+		<main className="flex flex-col w-full items-center justify-center bg-white ">
 			<Hero heroTaglines={heroTaglines} />
 			<EspaciosDisponibles />
 			<StudioHighlights />
-			{/* <ProductListContainer />
+			<ProductListContainer />
 			<CycrloramaSection />
 			<MemberShipSection />
-			<ContactSection /> */}
+			<ContactSection />
 		</main>
 	);
 }

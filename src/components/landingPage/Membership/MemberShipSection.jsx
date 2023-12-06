@@ -8,8 +8,8 @@ const MemberShipSection = () => {
 	};
 
 	return (
-		<section className="max-w-6xl w-full mx-auto my-8 mt-auto flex flex-col gap-8 justify-center items-center ff-barlow">
-			<h2 className="text-4xl font-bold mb-4 text-center max-w-3xl">
+		<section className="max-w-6xl w-full mx-auto my-8 px-8 mt-auto flex flex-col gap-8 justify-center items-center ff-barlow">
+			<h2 className="text-2xl md:text-4xl font-bold mb-4 text-center max-w-3xl">
 				Adelántate a tus producciones con nuestras
 				<span className="text-accent"> MEMBRESÍAS </span> de estudio y foro
 			</h2>

@@ -34,7 +34,7 @@ const CicloramaWidget = ({ ciclromaData }) => {
 	};
 
 	return (
-		<article className="ff-nunito flex flex-col justify-center items-center w-full max-w-xl prose debug">
+		<article className="ff-nunito flex flex-col justify-center items-center w-full max-w-xl prose ">
 			<figure className="flex flex-col-reverse lg:flex-row w-full justify-center items-center">
 				<div className="flex  lg:flex-col w-full justify-center items-center max-w-md prose ff-nunito px-4">
 					<AiOutlineCaretUp
@@ -69,7 +69,7 @@ const CicloramaWidget = ({ ciclromaData }) => {
 				<img
 					src={selectedRoll.ciclroma}
 					alt={`Ciclorama ${selectedRoll.title}`}
-					className="max-h-96 w-full  object-cover debug flex-1 "
+					className="max-h-96 w-full  object-cover  flex-1 "
 				/>
 			</figure>
 

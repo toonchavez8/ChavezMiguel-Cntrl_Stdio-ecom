@@ -16,8 +16,8 @@ import BathroomIcon from "../../../assets/icons/bathroom.png";
 import PortableClosetsIcon from "../../../assets/icons/hanger.svg";
 const StudioHighlights = () => {
 	return (
-		<section className="flex flex-col w-full items-center justify-center mb-12 debug">
-			<div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full max-w-7xl mt-12 md:mt-0 px-2 debug">
+		<section className="flex flex-col w-full items-center justify-center mb-12">
+			<div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full max-w-7xl mt-12 md:mt-0 px-2">
 				<h2 className="text-xl w-72 md:w-full max-w-lg md:text-3xl lg:max-w-2xl ff-barlow text font-bold">
 					<span className="text-accent">El lugar ideal</span> para tu producción
 					de foto o video en Guadalajara
