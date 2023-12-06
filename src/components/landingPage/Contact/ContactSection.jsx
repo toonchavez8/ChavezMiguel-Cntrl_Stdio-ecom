@@ -5,10 +5,10 @@ const ContactSection = () => {
 	return (
 		<section className=" py-8 w-full bg-primary flex-col justify-center items-center gap-8 inline-flex pt-16">
 			<div className="flex-col justify-start items-center gap-7 flex">
-				<div className="text-white text-4xl font-normal font- leading-10 text-center px-4  md:px-32">
+				<div className="text-white  text-2xl md:text-4xl font-normal font- leading-10 text-center px-4  md:px-32">
 					¿Necesitas un equipo creativo o más detalles de nuestro estudio?
 					<br />
-					<span className="text-white text-4xl font-semibold font-['Barlow'] leading-10">
+					<span className="text-white text-2xl md:text-4xl font-semibold font-['Barlow'] leading-10">
 						¡Escríbenos!
 					</span>
 				</div>
