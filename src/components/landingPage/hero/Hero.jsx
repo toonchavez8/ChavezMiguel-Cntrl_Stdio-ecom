@@ -24,7 +24,7 @@ export default function Hero(
 
 	return (
 		<section className="relative  w-full transition-all ease">
-			<div className="absolute debug flex flex-col w-[16rem] md:w-[28rem] lg:w-[48rem] top-1/2 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white uppercase transition-all duration-300 ease-in-out">
+			<div className="absolute  flex flex-col w-[16rem] md:w-[28rem] lg:w-[48rem] top-1/2 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white uppercase transition-all duration-300 ease-in-out">
 				<h1 className="ff-barlow text-xl sm:text-4xl lg:text-6xl whitespace-pre-line text-left">
 					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
