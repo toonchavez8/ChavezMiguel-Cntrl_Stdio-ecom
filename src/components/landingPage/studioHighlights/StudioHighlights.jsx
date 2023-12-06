@@ -16,14 +16,14 @@ import BathroomIcon from "../../../assets/icons/bathroom.png";
 import PortableClosetsIcon from "../../../assets/icons/hanger.svg";
 const StudioHighlights = () => {
 	return (
-		<section className="flex flex-col w-full items-center justify-center mb-12">
-			<div className="flex flex-col md:flex-row gap-8 items-center justify-center w-full max-w-7xl mt-12 md:mt-0">
-				<h2 className="text-xl w-full max-w-lg md:text-3xl md:max-w-2xl ff-barlow text font-bold">
+		<section className="flex flex-col w-full items-center justify-center mb-12 debug">
+			<div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full max-w-7xl mt-12 md:mt-0 px-2 debug">
+				<h2 className="text-xl w-72 md:w-full max-w-lg md:text-3xl lg:max-w-2xl ff-barlow text font-bold">
 					<span className="text-accent">El lugar ideal</span> para tu producción
 					de foto o video en Guadalajara
 				</h2>
 
-				<article className="px-12 md:px-0 md:pe-6 flex flex-col gap-8 ff-nunito">
+				<article className="px-2 md:px- lg:px-0 md:pe-6 flex flex-col gap-8 ff-nunito">
 					<p className="md:mt-6 leading-8">
 						Aquí, ofrecemos equipo profesional y espacios prácticos que te
 						permitirán dar vida a tus proyectos de fotografía y video. Nuestra
@@ -36,7 +36,7 @@ const StudioHighlights = () => {
 					</p>
 					<p className="border-b-4 border-accent max-w-fit">Tu renta incluye</p>
 
-					<div className="justify-between items-start inline-flex w-full max-w-7xl ">
+					<div className="justify-between items-start inline-flex w-full max-w-7xl gap-4 mt-4">
 						<div className="flex-col justify-start items-start inline-flex gap-2">
 							{/* Studio Items */}
 							<StudioItem icon={StudioIcon} text="Ciclorama blanco y negro" />
@@ -80,11 +80,11 @@ const StudioHighlights = () => {
 
 // Separate component for each studio item
 const StudioItem = ({ icon, text }) => (
-	<div className=" justify-center items-center gap-2 inline-flex">
-		<div className="w-7 h-7 relative">
+	<div className=" flex gap-1  text-left ">
+		<div className="w-8 h-8 ">
 			<img src={icon} alt={text} className="w-full h-full object-contain" />
 		</div>
-		<div className="text-stone-900 text-xl font-extrabold">{text}</div>
+		<div className="text-stone-900  md:text-xl font-extrabold">{text}</div>
 	</div>
 );
 

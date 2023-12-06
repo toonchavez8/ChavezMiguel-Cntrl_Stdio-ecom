@@ -19,10 +19,10 @@ export default function LandingPage() {
 			<Hero heroTaglines={heroTaglines} />
 			<EspaciosDisponibles />
 			<StudioHighlights />
-			<ProductListContainer />
+			{/* <ProductListContainer />
 			<CycrloramaSection />
 			<MemberShipSection />
-			<ContactSection />
+			<ContactSection /> */}
 		</main>
 	);
 }
