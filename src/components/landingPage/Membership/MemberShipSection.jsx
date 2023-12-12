@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MembershipListItem from "../../common/MemebershipListItem/MemberShipListItem.jsx";
 import { TbBoxModel, TbBasketDiscount } from "react-icons/tb";
 import { HiOutlineColorSwatch } from "react-icons/hi";
@@ -8,74 +7,59 @@ import { MdFilter } from "react-icons/md";
 import { TiFlashOutline } from "react-icons/ti";
 
 const MemberShipSection = () => {
-	const [hoveredPlan, setHoveredPlan] = useState(null);
-
-	const handleHover = (plan) => {
-		setHoveredPlan(plan);
-	};
-
 	return (
 		<section className="max-w-6xl w-full mx-auto my-8 px-8 mt-auto flex flex-col gap-8 justify-center items-center ff-barlow pt-8">
 			<h2 className="text-2xl md:text-4xl font-bold mb-4 text-center max-w-3xl mt-8">
 				Adelántate a tus producciones con nuestras
 				<span className="text-accent"> MEMBRESÍAS </span> de estudio y foro
 			</h2>
-			<figure className="flex flex-col md:flex-row gap-2 w-full justify-around items-center">
+			<figure className="flex flex-col md:flex-row gap-2 w-full justify-around items-center my-10">
 				{/* Membresía PLUS */}
-				<div
-					className={`bg-white shadow-lg stroke-white border-2 h-64 rounded border-primary mb-8 py-4 px-2 flex flex-col items-center transition-all transform ${
-						hoveredPlan !== "PLUS" ? "scale-115" : ""
-					} ease-out justify-center`}
-					onMouseEnter={() => handleHover("PLUS")}
-					onMouseLeave={() => handleHover(null)}
-				>
-					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-primary">
+				<div className="bg-white shadow-lg stroke-white border-2 h-64 rounded border-primary mb-8 py-4 px-2 flex flex-col items-center transition-all transform hover:bg-primary  group hover:scale-105 duration-200 ease-in-out hover:border-opacity-100 hover:border-accent hover:">
+					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-primary group-hover:text-white group-hover:border-accent">
 						PLUS
 					</h3>
-					<p className="text-4xl font-extrabold text-primary">
+					<p className="text-4xl font-extrabold text-primary group-hover:text-white">
 						<span className="text-xl ">$</span>4,600
 					</p>
-					<p className="font-semibold mb-2 px-2">20 horas de estudio</p>
+					<p className="font-semibold mb-2 px-2 group-hover:text-accent">
+						20 horas de estudio
+					</p>
 					<p className="text-base-300 ">Precio regular $5,600 + cicloramas</p>
 				</div>
 
 				{/* Membresía ULTRA */}
-				<div
-					className={`bg-white shadow-lg stroke-white border-2 h-64 rounded border-secondary mb-8 py-4 px-2 flex flex-col items-center transition-all transform ${
-						hoveredPlan === "ULTRA" ? "scale-125" : "scale-100"
-					} ease-out justify-center`}
-					onMouseEnter={() => handleHover("ULTRA")}
-					onMouseLeave={() => handleHover(null)}
-				>
-					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-secondary">
+				<div className="bg-white shadow-lg stroke-white border-2 h-64 rounded border-secondary mb-8 py-4 px-2 flex flex-col items-center transition-all transform hover:bg-secondary group scale-125 hover:scale-[1.35] duration-200 ease-in-out hover:border-opacity-100 hover:border-primary hover:">
+					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-secondary group-hover:text-white group-hover:border-primary">
 						ULTRA
 					</h3>
-					<p className="text-4xl font-extrabold text-secondary">
+					<p className="text-4xl font-extrabold text-secondary group-hover:text-white">
 						<span className="text-xl ">$</span>6,500
 					</p>
-					<p className="font-semibold mb-2 px-2">20 horas de foro</p>
-					<p className="text-base-300 ">Precio regular $7,800 + cicloramas</p>
+					<p className="font-semibold mb-2 px-2 group-hover:text-primary">
+						20 horas de foro
+					</p>
+					<p className="text-base-300 group-hover:text-primary/50">
+						Precio regular $7,800 + cicloramas
+					</p>
 				</div>
 
 				{/* Membresía PREMIUM */}
-				<div
-					className={`bg-white shadow-lg stroke-white border-2 h-64 rounded border-accent mb-8 py-4 px-2 flex flex-col items-center transition-all transform ${
-						hoveredPlan === "PREMIUM" ? "scale-115" : "scale-100"
-					} ease-out justify-center`}
-					onMouseEnter={() => handleHover("PREMIUM")}
-					onMouseLeave={() => handleHover(null)}
-				>
-					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-accent">
+				<div className="bg-white shadow-lg stroke-white border-2 h-64 rounded border-accent mb-8 py-4 px-2 flex flex-col items-center transition-all transform hover:bg-accent  group hover:scale-105 duration-200 ease-in-out hover:border-opacity-100 hover:border-primary ">
+					<h3 className="text-3xl font-bold mb-8 text-center w-36 border-b-2 border-accent group-hover:text-white group-hover:border-primary">
 						PREMIUM
 					</h3>
-					<p className="text-4xl font-extrabold text-accent">
+					<p className="text-4xl font-extrabold text-accent group-hover:text-white">
 						<span className="text-xl ">$</span>9,900
 					</p>
-					<p className="font-semibold mb-2 px-2">20 horas de foro + estudio</p>
-					<p className="text-base-300 ">Precio regular $13,400 + cicloramas</p>
+					<p className="font-semibold mb-2 px-2 group-hover:text-primary">
+						20 horas de foro + estudio
+					</p>
+					<p className="text-base-300 group-hover:text-primary/50 ">
+						Precio regular $13,400 + cicloramas
+					</p>
 				</div>
 			</figure>
-
 			{/* Included in the membership */}
 			<div className="w-full text-center">
 				<h4 className="text-3xl font-bold mb-4">Incluido en la membresía</h4>
