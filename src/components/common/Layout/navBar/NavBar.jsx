@@ -23,14 +23,14 @@ export default function NavBar() {
 
 	return (
 		<header
-			className={`drawer z-50 fixed transition-all duration-300 ease-in-out ${
+			className={`drawer z-50 fixed transition-all duration-75 font-normal ease-in-out  ${
 				navbarBg
-					? "bg-gradient-to-b  from-[#0611e5] from-05% to-transparent bg-opacity-100"
-					: "bg-opcacity-0"
+					? "bg-gradient-to-b from-[#0611e5] from-05% to-transparent bg-opacity-100 text-white"
+					: "bg-opcacity-0 text-primary"
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-			<div className="drawer-content  w-full flex flex-col ff-nunito text-white px-4">
+			<div className="drawer-content  w-full flex flex-col ff-nunito  px-4">
 				{/* Navbar */}
 				<nav className="w-full flex flex-row justify-between align-baseline lg:navbar bg-none bg-scroll transition lg:mt-0 lg:pt-0 ">
 					<div className=" lg:hidden mx-4">
@@ -63,11 +63,11 @@ export default function NavBar() {
 						<ul className="menu menu-horizontal gap-1">
 							{/* Navbar menu content here */}
 							<li>
-								<details className="fill-secondary ">
-									<summary className="hover:text-primary">
+								<details className="fill-secondary  rounded">
+									<summary className="">
 										<Link to={"/renta"}>Renta</Link>
 									</summary>
-									<ul className="p-2 bg-base-100">
+									<ul className="p-2 bg-primary ">
 										<li>
 											<Link to={"renta/estudio"}>Estudio</Link>
 										</li>
