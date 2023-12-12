@@ -39,7 +39,9 @@ const StudioHighlights = () => {
 							¡Bienvenido a tu espacio creativo!
 						</span>
 					</p>
-					<p className="border-b-4 border-accent max-w-fit">Tu renta incluye</p>
+					<p className="border-b-4 border-accent  max-w-fit">
+						Tu renta incluye
+					</p>
 
 					<div className="justify-between items-start inline-flex w-full max-w-7xl gap-4 mt-4">
 						<div className="flex-col justify-start items-start inline-flex gap-2">
@@ -119,10 +121,8 @@ const StudioItem = ({ icon, text, sub, children }) => (
 			{children}
 		</div>
 		<div className="flex flex-col ">
-			<div className=" p-0 m-0 md:text-xl font-extrabold">{text}</div>
-			{sub && (
-				<small className="  md:text-sm  -my-1 font-extrabold">{sub}</small>
-			)}
+			<div className=" p-0 m-0  font-extrabold ">{text}</div>
+			{sub && <small className="  md:text-sm  -my-1 ">{sub}</small>}
 		</div>
 	</div>
 );
