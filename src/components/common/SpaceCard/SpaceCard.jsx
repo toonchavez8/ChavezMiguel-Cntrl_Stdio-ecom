@@ -44,9 +44,9 @@ SpaceCard.propTypes = {
 	imageSrc: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	area: PropTypes.string.isRequired,
-	operationHours: PropTypes.string.isRequired,
-	price: PropTypes.string.isRequired,
-	link: PropTypes.string.isRequired,
+	operationHours: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	price: PropTypes.string,
+	link: PropTypes.string,
 	subLine: PropTypes.string,
 };
 

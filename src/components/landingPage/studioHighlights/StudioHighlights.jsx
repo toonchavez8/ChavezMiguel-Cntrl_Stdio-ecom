@@ -128,7 +128,7 @@ const StudioItem = ({ icon, text, sub, children }) => (
 );
 
 StudioItem.propTypes = {
-	icon: PropTypes.string.isRequired, // Assuming `icon` is a path to the image
+	icon: PropTypes.string,
 	text: PropTypes.string.isRequired,
 	sub: PropTypes.string,
 	children: PropTypes.node,

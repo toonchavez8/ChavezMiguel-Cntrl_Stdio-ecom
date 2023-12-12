@@ -1,4 +1,11 @@
 import { useState } from "react";
+import MembershipListItem from "../../common/MemebershipListItem/MemberShipListItem.jsx";
+import { TbBoxModel, TbBasketDiscount } from "react-icons/tb";
+import { HiOutlineColorSwatch } from "react-icons/hi";
+import { RiRemoteControlLine } from "react-icons/ri";
+import { BiSquareRounded } from "react-icons/bi";
+import { MdFilter } from "react-icons/md";
+import { TiFlashOutline } from "react-icons/ti";
 
 const MemberShipSection = () => {
 	const [hoveredPlan, setHoveredPlan] = useState(null);
@@ -8,8 +15,8 @@ const MemberShipSection = () => {
 	};
 
 	return (
-		<section className="max-w-6xl w-full mx-auto my-8 px-8 mt-auto flex flex-col gap-8 justify-center items-center ff-barlow">
-			<h2 className="text-2xl md:text-4xl font-bold mb-4 text-center max-w-3xl">
+		<section className="max-w-6xl w-full mx-auto my-8 px-8 mt-auto flex flex-col gap-8 justify-center items-center ff-barlow pt-8">
+			<h2 className="text-2xl md:text-4xl font-bold mb-4 text-center max-w-3xl mt-8">
 				Adelántate a tus producciones con nuestras
 				<span className="text-accent"> MEMBRESÍAS </span> de estudio y foro
 			</h2>
@@ -74,17 +81,36 @@ const MemberShipSection = () => {
 				<h4 className="text-3xl font-bold mb-4">Incluido en la membresía</h4>
 			</div>
 
-			<ul className="w-full text-center">
-				<li>Todos los cicloramas de colores disponibles</li>
-				<li>2 Flashes de estudio Godox SK40011-V con reflectores</li>
-				<li>2 Softbox Godox SB-BW 60 x 90 cm</li>
-				<li>1 transmisor Godox XT-16</li>
-				<li>1 rebotador plegable 5 en 1</li>
-				<li>10 filtros de tela de colores</li>
-				<li>
-					-15% en rentas de otros espacios, horas extras, equipo o rentas
-					durante el fin de semana durante la vigencia de la membresía.
-				</li>
+			<ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+				<MembershipListItem
+					text="Todos los cicloramas de colores disponibles"
+					icon={<HiOutlineColorSwatch className="w-8 h-8" />}
+				/>
+				<MembershipListItem
+					text="2 Flashes de estudio Godox SK40011-V con reflectores"
+					icon={<TiFlashOutline className="w-8 h-8" />}
+				/>
+				<MembershipListItem
+					text="2 Softbox Godox SB-BW 60 x 90 cm"
+					icon={<TbBoxModel className="w-8 h-8" />}
+				/>
+				<MembershipListItem
+					text="1 transmisor Godox XT-16"
+					icon={<RiRemoteControlLine className="w-10 h-10" />}
+				/>
+				<MembershipListItem
+					text="1 rebotador plegable 5 en 1"
+					icon={<BiSquareRounded className="w-8 h-8" />}
+				/>
+				<MembershipListItem
+					text="10 filtros de tela de colores"
+					icon={<MdFilter className="w-8 h-8" />}
+				/>
+				<MembershipListItem
+					text="-15% en rentas de otros espacios, horas extras, equipo o rentas durante el fin de semana durante la vigencia de la membresía."
+					className="col-span-1 md:col-span-2 lg:col-span-3 items-center justify-center"
+					icon={<TbBasketDiscount className="w-8 h-8" />}
+				/>
 			</ul>
 		</section>
 	);
