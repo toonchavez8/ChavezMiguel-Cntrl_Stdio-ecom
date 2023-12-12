@@ -23,18 +23,21 @@ export default function NavBar() {
 
 	return (
 		<header
-			className={`drawer z-50 fixed transition-all duration-300 ease-in-out ${
+			className={`drawer z-50 fixed transition-all duration-75 font-normal ease-in-out  ${
 				navbarBg
-					? "bg-gradient-to-b  from-[#0611e5] from-05% to-transparent bg-opacity-100"
-					: "bg-opcacity-0"
+					? "bg-gradient-to-b from-[#0611e5] from-05% to-transparent bg-opacity-100 text-white"
+					: "bg-opcacity-0 text-primary"
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-			<div className="drawer-content flex flex-col ff-nunito text-white px-4">
+			<div className="drawer-content  w-full flex flex-col ff-nunito  px-4">
 				{/* Navbar */}
-				<nav className="w-full navbar bg-none bg-scroll transition mt-0 pt-0 ">
-					<div className="flex-none lg:hidden mx-4">
-						<label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+				<nav className="w-full flex flex-row justify-between align-baseline lg:navbar bg-none bg-scroll transition lg:mt-0 lg:pt-0 ">
+					<div className=" lg:hidden mx-4">
+						<label
+							htmlFor="my-drawer-3"
+							className="btn btn-square btn-ghost stroke-primary"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
@@ -52,19 +55,19 @@ export default function NavBar() {
 					</div>
 					<Link
 						to={"/"}
-						className="btn btn-primary p-0 rounded-none h-28 aspect-square ms-0  lg:ms-28 sm:me-auto"
+						className="btn btn-primary    p-0 rounded-none  lg:h-28 aspect-square  lg:ms-28 sm:me-auto"
 					>
-						<img src={centralLogo} alt="Logo" className="mx-auto" />
+						<img src={centralLogo} alt="Logo" className="my-auto" />
 					</Link>
 					<div className="hidden lg:block uppercase  mx-auto">
 						<ul className="menu menu-horizontal gap-1">
 							{/* Navbar menu content here */}
 							<li>
-								<details className="fill-secondary ">
-									<summary className="hover:text-primary">
+								<details className="fill-secondary  rounded">
+									<summary className="">
 										<Link to={"/renta"}>Renta</Link>
 									</summary>
-									<ul className="p-2 bg-base-100">
+									<ul className="p-2 bg-primary ">
 										<li>
 											<Link to={"renta/estudio"}>Estudio</Link>
 										</li>
@@ -91,7 +94,7 @@ export default function NavBar() {
 						</ul>
 					</div>
 
-					<div className="flex-none hidden lg:block uppercase">
+					<div className=" hidden lg:block uppercase">
 						<ul className="menu menu-horizontal">
 							{/* Navbar menu content here */}
 							<Link
@@ -102,7 +105,7 @@ export default function NavBar() {
 							</Link>
 						</ul>
 					</div>
-					<div className=" grid grid-flow-col gap-4 fill-secondary px-0 md:px-10 ">
+					<div className=" hidden lg:grid grid-flow-col gap-4 fill-secondary px-0 md:px-10 ">
 						{/* youtube link */}
 						<Link
 							to="https://www.youtube.com/@centralestudio9189"

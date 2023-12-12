@@ -12,6 +12,9 @@ import ProductDetailContainter from "../pages/productDetail/ProductDetailContain
 import ProductListContainer from "../components/common/ProductList/ProductListContainer";
 import CartPage from "../pages/CartPage";
 import CheckoutContainer from "../pages/Checkout/CheckoutContainer";
+import PoliticaDeRenta from "../pages/termsAndconditions/PoliticaDeRenta.jsx";
+import CondicionesDeUso from "../pages/termsAndconditions/CondicionesDeUso.jsx";
+import Cocina from "../pages/renta/Cocina.jsx";
 
 export const menuRoutes = [
 	{
@@ -84,5 +87,20 @@ export const menuRoutes = [
 		id: 14,
 		path: "/checkout",
 		Element: CheckoutContainer,
+	},
+	{
+		id: 15,
+		path: "/politica-de-renta",
+		Element: PoliticaDeRenta,
+	},
+	{
+		id: 16,
+		path: "/condiciones-de-uso",
+		Element: CondicionesDeUso,
+	},
+	{
+		id: 17,
+		path: "/renta/cocina",
+		Element: Cocina,
 	},
 ];

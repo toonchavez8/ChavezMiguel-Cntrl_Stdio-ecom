@@ -2,6 +2,7 @@ import ProductListContainer from "../components/common/ProductList/ProductListCo
 import ContactSection from "../components/landingPage/Contact/ContactSection.jsx";
 import CycrloramaSection from "../components/landingPage/CycloramaSection/CycrloramaSection.jsx";
 import EspaciosDisponibles from "../components/landingPage/EspaciosDispnibles/EspaciosDisponibles.jsx";
+import MemberShipSection from "../components/landingPage/Membership/MemberShipSection.jsx";
 import Hero from "../components/landingPage/hero/Hero";
 import StudioHighlights from "../components/landingPage/studioHighlights/StudioHighlights";
 
@@ -18,6 +19,7 @@ export default function LandingPage() {
 			<Hero heroTaglines={heroTaglines} />
 			<EspaciosDisponibles />
 			<StudioHighlights />
+			<MemberShipSection />
 			<ProductListContainer />
 			<CycrloramaSection />
 			<ContactSection />
