@@ -19,9 +19,9 @@ export default function LandingPage() {
 			<Hero heroTaglines={heroTaglines} />
 			<EspaciosDisponibles />
 			<StudioHighlights />
+			<MemberShipSection />
 			<ProductListContainer />
 			<CycrloramaSection />
-			<MemberShipSection />
 			<ContactSection />
 		</main>
 	);

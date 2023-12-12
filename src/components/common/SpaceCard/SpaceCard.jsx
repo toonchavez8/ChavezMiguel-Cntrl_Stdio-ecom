@@ -22,7 +22,7 @@ const SpaceCard = ({
 				/>
 				<div className="flex flex-row justify-center  gap-2 align-baseline">
 					<div className="flex flex-col  gap-0 m-0 p-0">
-						<h3 className="text-2xl font-semibold text-stone-900">{title}</h3>
+						<h3 className="text-xl font-semibold text-stone-900">{title}</h3>
 						<small className="text-stone-900">{area}</small>
 						<p className="text-stone-900">{operationHours}</p>
 					</div>

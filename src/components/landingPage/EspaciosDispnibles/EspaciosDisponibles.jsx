@@ -17,7 +17,11 @@ const EspaciosDisponibles = () => {
 					imageSrc={ForoImg}
 					title="Ciclorama infinito"
 					area="30 m2"
-					operationHours="Horario de operación 7 am - 9 pm"
+					operationHours={
+						<>
+							Horario de operación <br /> 7 am - 9 pm
+						</>
+					}
 					price="Desde $566 / hora"
 					subLine="3 horas mínimo"
 					link="/renta/foro"
@@ -26,7 +30,11 @@ const EspaciosDisponibles = () => {
 					imageSrc={EstudioImg}
 					title="Estudio"
 					area="30 m2"
-					operationHours="Horario de operación 7 am - 9 pm"
+					operationHours={
+						<>
+							Horario de operación <br /> 7 am - 9 pm
+						</>
+					}
 					price="Desde $433 / hora"
 					subLine="3 horas mínimo"
 					link="/renta/estudio"
