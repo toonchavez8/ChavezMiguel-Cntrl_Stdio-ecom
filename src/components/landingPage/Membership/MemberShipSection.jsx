@@ -96,6 +96,21 @@ const MemberShipSection = () => {
 					icon={<TbBasketDiscount className="w-8 h-8" />}
 				/>
 			</ul>
+
+			{/* Call to Action */}
+			<div className="w-full text-center mt-8">
+				<p className="text-lg md:text-2xl  font-medium mb-4">
+					Descubre los Beneficios de Nuestras Membresías. <br />
+					<span className="text-accent font-bold">
+						¡Aprovecha Ahora y Eleva tus Producciones!
+					</span>
+				</p>
+				<a href="/membresias" className="group">
+					<button className="btn btn-outline btn-primary border-2 border-primary text-primary hover:text-white">
+						¡Conoce Nuestras Membresías!
+					</button>
+				</a>
+			</div>
 		</section>
 	);
 };
