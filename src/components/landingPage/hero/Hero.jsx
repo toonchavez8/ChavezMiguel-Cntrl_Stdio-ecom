@@ -44,7 +44,7 @@ export default function Hero(
 						</button>
 					</Link>
 
-					<a href="">
+					<a href="/portafolio" rel="noreferrer">
 						<button className="btn btn-outline btn-secondary border-2 group">
 							Nuestro Trabajo
 							<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
