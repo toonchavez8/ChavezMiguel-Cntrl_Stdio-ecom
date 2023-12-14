@@ -1,5 +1,6 @@
 import { IoMailOutline } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ContactSection = () => {
 	return (
@@ -19,10 +20,16 @@ const ContactSection = () => {
 					<IoMailOutline className="scale-150 ms-2" />
 				</button>
 
-				<button className="btn btn-secondary border-2 text-primary group flex-1 max-w-sm flex items-center font-bold">
-					Nuestro Trabajo
-					<FaWhatsapp className="scale-150 ms-2" />
-				</button>
+				<Link
+					href="http://wa.link/rnk8qu"
+					target="_blank"
+					className=" flex-1 w-full max-w-sm"
+				>
+					<button className="btn btn-secondary border-2 text-primary group  w-full max-w-sm flex items-center font-bold">
+						WhatsApp
+						<FaWhatsapp className="scale-150 ms-2" />
+					</button>
+				</Link>
 			</div>
 		</section>
 	);

@@ -5,6 +5,7 @@ import { RiRemoteControlLine } from "react-icons/ri";
 import { BiSquareRounded } from "react-icons/bi";
 import { MdFilter } from "react-icons/md";
 import { TiFlashOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const MemberShipSection = () => {
 	return (
@@ -105,11 +106,11 @@ const MemberShipSection = () => {
 						¡Aprovecha Ahora y Eleva tus Producciones!
 					</span>
 				</p>
-				<a href="/membresias" className="group">
+				<Link to="/membresias" className="group">
 					<button className="btn btn-outline btn-primary border-2 border-primary text-primary hover:text-white">
 						¡Conoce Nuestras Membresías!
 					</button>
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

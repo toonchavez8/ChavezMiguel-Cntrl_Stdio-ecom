@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SpaceCard = ({
 	imageSrc,
@@ -10,7 +11,7 @@ const SpaceCard = ({
 	subLine,
 }) => {
 	return (
-		<a
+		<Link
 			href={link}
 			className="hover:scale-105 transition duration-200 ease-in-out "
 		>
@@ -36,7 +37,7 @@ const SpaceCard = ({
 					</p>
 				</div>
 			</article>
-		</a>
+		</Link>
 	);
 };
 
