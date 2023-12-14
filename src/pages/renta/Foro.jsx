@@ -1,4 +1,31 @@
-export default function Foro() {
+import useFirebaseData from "../../utils/useFireBaseData.jsx";
+
+const Foro = () => {
+	const { data, loading, error } = useFirebaseData(
+		"espacios",
+		"Ciclorama Infinito"
+	);
+
+	if (loading) {
+		return <div className="text-center mt-8">Loading...</div>;
+	}
+
+	if (error) {
+		return (
+			<div className="text-center mt-8 text-red-500">
+				Error: {error.message}
+			</div>
+		);
+	}
+
+	const {
+		details,
+		description,
+		name,
+		image,
+		hours: { horas, extra, dias },
+	} = data;
+
 	return (
 		<main className="bg-white">
 			<section className="bg-white w-full flex flex-col gap-10">
@@ -11,50 +38,34 @@ export default function Foro() {
 					className="w-full h-[500px] object-cover"
 				></video>
 
-				<div className="w-full flex justify-center text-center">
-					<div className="max-w-md">
-						<h1 className="mb-5 text-5xl font-bold">
-							Ya conoces nuestro Foro?
-						</h1>
-						<p className="mb-5 text-left">
-							La mejor ubicación a solo 1 cuadra de Av. Hidalgo y Av. Américas,
-							más de 3.3 metros de altura, aire lavado, persianas black out,
-							lobby, área de maquillaje y WiFi de 200 MB.
-						</p>
-						<button className="btn btn-primary">Get Started</button>
+				<div className="w-full flex  justify-center text-center ">
+					<div className="max-w-2xl prose">
+						<h1 className="mb-5 text-5xl font-bold ff-barlow">{name}</h1>
+						<p className="mb-5 text-left ff-nunito">{description}</p>
 					</div>
 				</div>
 
-				<div className="max-w-7xl mx-auto mt-10">
+				<div className="max-w-7xl debug mx-auto mt-10">
+					<img src={image} alt="name" className=" rounded w-1/2 mx-auto" />
 					<h2 className="text-3xl font-semibold mb-5">Detalles del Foro</h2>
 
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-						<div className="p-4 border rounded hover:border-secondary hover:text-primary ">
+						{/* Render details using the data object */}
+						<div className="p-4 border rounded hover:border-secondary hover:text-primary">
 							<h3 className="text-xl font-semibold mb-2">Área Blanca</h3>
-							<p>4.4 x 8.15 m</p>
+							<p>{details.area}</p>
 						</div>
-						<div className="p-4 border rounded hover:border-secondary hover:text-primary ">
+						<div className="p-4 border rounded hover:border-secondary hover:text-primary">
 							<h3 className="text-xl font-semibold mb-2">Altura</h3>
-							<p>Más de 3.3 m</p>
+							<p>{details.altura}</p>
 						</div>
-						<div className="p-4 border rounded hover:border-secondary hover:text-primary ">
+						<div className="p-4 border rounded hover:border-secondary hover:text-primary">
 							<h3 className="text-xl font-semibold mb-2">Tiro</h3>
-							<p>14 m</p>
+							<p>{details.tiro}</p>
 						</div>
-						<div className="p-4 border rounded hover:border-secondary hover:text-primary ">
-							<h3 className="text-xl font-semibold mb-2">Ciclorama</h3>
-							<p>Infinito Blanco</p>
-						</div>
-
 						<div className="p-4 border rounded hover:border-secondary hover:text-primary col-span-2">
-							<h3 className="text-xl font-semibold mb-2">Incluye</h3>
-							<p>
-								2 Flashes Godox SK40011-V + Accesorios
-								<br />
-								Cicloramas: Blanco y Negro
-								<br />
-								Cicloramas de otros colores $500 + IVA por color
-							</p>
+							<h3 className="text-xl font-semibold mb-2">Ciclorama</h3>
+							<p>{details.incluye.ciclorama.join(", ")}</p>
 						</div>
 					</div>
 				</div>
@@ -63,33 +74,30 @@ export default function Foro() {
 					<h2 className="text-3xl font-semibold mb-5 text-center">Horas</h2>
 
 					<div className="grid grid-cols-5 sm:grid-cols-4 lg:grid-cols-5 gap-4">
-						<div className="p-4  rounded bg-white">
+						{/* Render hours using the data object */}
+						<div className="p-4 rounded bg-white">
 							<h3 className="text-xl font-semibold mb-2 ">Dias</h3>
-							<p>Lun-Vier</p>
-							<p>Sab-Dom</p>
+							{dias.map((dia) => (
+								<p key={dia}>{dia}</p>
+							))}
 						</div>
-						<div className="p-4  rounded bg-white">
-							<h3 className="text-xl font-semibold mb-2">3</h3>
-							<p>1700</p>
-							<p>2250</p>
-						</div>
-						<div className="p-4  rounded bg-white">
-							<h3 className="text-xl font-semibold mb-2">5</h3>
-							<p>2600</p>
-							<p>3250</p>
-						</div>
-						<div className="p-4  rounded bg-white">
-							<h3 className="text-xl font-semibold mb-2">10</h3>
-							<p>3900</p>
-							<p>4980</p>
-						</div>
-						<div className="p-4  rounded bg-white row-span-2">
+						{Object.entries(horas).map(([hora, precio]) => (
+							<div key={hora} className="p-4 rounded bg-white">
+								<h3 className="text-xl font-semibold mb-2">{hora}</h3>
+								{Object.entries(precio).map(([tiempo, precio]) => (
+									<p key={tiempo}>{`${tiempo}: ${precio}`}</p>
+								))}
+							</div>
+						))}
+						<div className="p-4 rounded bg-white row-span-2">
 							<h3 className="text-xl font-semibold mb-2">1 Extra</h3>
-							<p>$550</p>
+							<p>${extra}</p>
 						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 	);
-}
+};
+
+export default Foro;
