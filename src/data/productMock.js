@@ -66,3 +66,98 @@ export const equipo = [
 		stock: 8,
 	},
 ];
+
+// Foro Space
+const foroSpace = {
+	name: "Ciclorama Infinito",
+	description:
+		"Descubre el espacio perfecto para tus producciones visuales en nuestro Foro con Ciclorama Infinito. Con una impresionante altura de 3.3 metros y un ciclorama blanco infinito, este espacio te ofrece la versatilidad y comodidad que necesitas para tu siguiente sesión.",
+	category: "Espacios",
+	image:
+		"https://res.cloudinary.com/duzeqpmgg/image/upload/v1689393832/Central/Foro-1_f251pg.jpg",
+	details: {
+		area: "4.4 x 8.15 m",
+		altura: "3.3 m",
+		tiro: "14 m",
+		aireAcondicionado: true,
+		incluye: {
+			flashes: "2 Flashes Godox SK40011-V + Accesorios",
+			ciclorama: ["Infinito Blanco", "Blanco", "Negro"],
+			opcional: "Cicloramas de otros colores $400 + IVA por color",
+		},
+	},
+	hours: {
+		dias: ["Lun-Vier", "Sab-Dom"],
+		horas: {
+			LunViern: { 3: 1700, 5: 2250, 10: 3900 },
+			SabDomingo: { 3: 2600, 5: 3250, 10: 4980 },
+		},
+		extra: 550,
+	},
+};
+
+// Estudio Space
+const estudioSpace = {
+	name: "Estudio",
+	description:
+		"¡Bienvenido a nuestro Estudio! Un espacio amplio con dimensiones de 5.4 x 4.5 metros, altura de 3.3 metros y equipado con todo lo necesario, incluyendo flashes profesionales. Ideal para sesiones de fotos y producciones audiovisuales. ¡Rentálo y crea obras increíbles con nosotros!",
+	category: "Espacios",
+	image:
+		"https://res.cloudinary.com/duzeqpmgg/image/upload/v1689394006/Central/Estudio-1_ky3icl.png",
+	details: {
+		area: "5.4 x 4.5 M",
+		altura: "3.3 M",
+		tiro: "5.4m",
+		aireAcondicionado: true,
+		incluye: {
+			flashes: "2 Flashes Godox SK40011-V + Accesorios",
+			ciclorama: ["Blanco", "Negro"],
+			opcional: "Cicloramas de otros colores $400 + IVA por color",
+		},
+	},
+	hours: {
+		dias: ["Lun-Vie", "Sab-Dom"],
+		horas: {
+			LunViern: { 3: 1300, 5: 1900, 10: 2800 },
+			SabDomingo: { 3: 1900, 5: 2700, 10: 3700 },
+		},
+		extra: 450,
+	},
+};
+
+// Cocina Space
+const cocinaSpace = {
+	name: "Cocina",
+	description:
+		"Tenemos una cocina industrial para tus producciones. Con 5.4 x 3.5 metros de espacio, esta cocina totalmente equipada es perfecta para sesiones gastronómicas, catering y mas. ¡Disponible solo para rentar en conjunto con el ciclorama infinito o Estudio!",
+	category: "Espacios",
+	image:
+		"https://res.cloudinary.com/duzeqpmgg/image/upload/v1689394006/Central/Estudio-1_ky3icl.png",
+	details: {
+		area: "5.4 x 3.5 M",
+		altura: "3.3 M",
+		disponible: "Solo disponible rentando el ciclorama infinito o Estudio",
+		aireAcondicionado: false,
+		equipamiento: [
+			"Estufa con horno",
+			"Refrigerador",
+			"Horno de microondas",
+			"Horno eléctrico",
+			"Cacerolas y ollas",
+			"2 Mesas de acero inoxidable",
+			"Licuadora",
+			"Bowls metálicos",
+		],
+	},
+	hours: {
+		dias: ["Lun-Vie", "Sab-Dom"],
+		horas: {
+			LunViern: { 3: 900, 5: 1300, 10: 1950 },
+			SabDomingo: { 3: 1200, 5: 1800, 10: 2500 },
+		},
+		extra: 300,
+	},
+};
+
+// Array of Spaces
+export const espacios = [foroSpace, estudioSpace, cocinaSpace];
