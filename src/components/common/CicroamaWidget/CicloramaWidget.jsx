@@ -13,7 +13,7 @@ const CicloramaWidget = ({ ciclromaData }) => {
 	return (
 		<article className="ff-nunito flex flex-col justify-center items-center w-full max-w-xl prose ">
 			<figure
-				className="flex flex-col-reverse lg:flex-row w-full justify-center items-center relative"
+				className="flex flex-col-reverse lg:flex-row w-full justify-center items-center relative group"
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 			>
@@ -22,7 +22,7 @@ const CicloramaWidget = ({ ciclromaData }) => {
 						className=" -rotate-90 lg:rotate-0 cursor-pointer mx-auto min-w-max"
 						size={30}
 					/>
-					<div className="flex flex-row lg:flex-col-reverse gap-2 m-0 p-0 lg:gap-0 overflow-x-scroll lg:overflow-y-scroll lg:h-80  max-h-xl no-scrollbar ">
+					<div className="flex flex-row lg:flex-col gap-2 m-0 p-0 lg:gap-0 overflow-x-scroll lg:overflow-y-scroll lg:h-80  max-h-xl no-scrollbar ">
 						{ciclromaData.map((data, index) => (
 							<img
 								key={data.title}
@@ -44,7 +44,7 @@ const CicloramaWidget = ({ ciclromaData }) => {
 					/>
 				</div>
 				{isHovered && (
-					<div className="badge badge-primary badge-outline absolute top-0 left-1/2 p-2">
+					<div className="badge badge-accent  md:badge-outline opacity-0 group-hover:opacity-100 font-bold transition-all ease absolute inset-x-auto bottom-1/3 md:top-0  md:left-1/2 px-4 py-3 md:text-lg ">
 						{selectedRoll.title}
 					</div>
 				)}

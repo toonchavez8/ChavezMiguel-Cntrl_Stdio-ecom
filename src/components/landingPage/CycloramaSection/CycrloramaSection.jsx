@@ -77,7 +77,7 @@ const CycrloramaSection = () => {
 				<CicloramaWidget ciclromaData={CycloramaData} />
 			</figure>
 			{/* Call to Action */}
-			<div className="w-full text-center mt-8">
+			<div className="w-full text-center -mt-8 md:-mt-12  ">
 				<p className="text-lg md:text-2xl font-medium mb-4">
 					Descubre la Variedad de Cicloramas Disponibles. <br />
 					<span className="text-accent">
