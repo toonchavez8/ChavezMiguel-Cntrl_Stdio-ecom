@@ -6,7 +6,8 @@ import ForoImg from "../../../assets/landing/Foro-1.jpg";
 import PropTypes from "prop-types";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Carousel from "../../common/Carusel/Carusel.jsx";
-import { Link } from "react-scroll";
+import { Link as LinkRS } from "react-scroll";
+import { Link } from "react-router-dom";
 
 export default function Hero(
 	{ heroTaglines } // heroTaglines is an array of strings
@@ -32,7 +33,7 @@ export default function Hero(
 					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
 				<div className="flex gap-3 flex-col md:flex-row ff-nunito pt-5 ">
-					<Link
+					<LinkRS
 						to="conoce-los-espacios"
 						smooth={true}
 						duration={500}
@@ -42,14 +43,14 @@ export default function Hero(
 							Nuestros Espacios
 							<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
 						</button>
-					</Link>
+					</LinkRS>
 
-					<a href="/portafolio" rel="noreferrer">
+					<Link to="/portafolio" rel="noreferrer">
 						<button className="btn btn-outline btn-secondary border-2 group">
 							Nuestro Trabajo
 							<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
 						</button>
-					</a>
+					</Link>
 				</div>
 			</div>
 			<Carousel

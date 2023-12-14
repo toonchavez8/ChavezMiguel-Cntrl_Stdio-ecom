@@ -14,6 +14,7 @@ import TechGreenRoll from "../../../assets/CicloramaWidget/TechGreen_Roll.png";
 import TechGreenCiclorama from "../../../assets/CicloramaWidget/TechGreen_Ciclorama.png";
 import TrueBlueRoll from "../../../assets/CicloramaWidget/TrueBlue_Roll.png";
 import TrueBlueCiclorama from "../../../assets/CicloramaWidget/TrueBlue_Ciclorama.png";
+import { Link } from "react-router-dom";
 
 const CycloramaData = [
 	{
@@ -84,9 +85,11 @@ const CycrloramaSection = () => {
 						¡Transforma tus Producciones Ahora!
 					</span>
 				</p>
-				<button className="btn btn-primary text-white py-3 px-6 rounded hover:bg-opacity-90 transition-all duration-300 ease-in-out">
-					¡Explora los Cicloramas!
-				</button>
+				<Link to="/membresias">
+					<button className="btn btn-primary text-white py-3 px-6 rounded hover:bg-opacity-90 transition-all duration-300 ease-in-out">
+						¡Explora los Cicloramas!
+					</button>
+				</Link>
 			</div>
 		</section>
 	);
