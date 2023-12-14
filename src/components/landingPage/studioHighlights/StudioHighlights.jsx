@@ -17,7 +17,7 @@ import WifiIcon from "../../../assets/icons/wifi.svg";
 import FridgeIcon from "../../../assets/icons/fridge.svg";
 import BathroomIcon from "../../../assets/icons/bathroom.png";
 import PortableClosetsIcon from "../../../assets/icons/hanger.svg";
-import Lights from "../../../assets/icons/umbrella.png";
+import Lights from "../../../assets/icons/umbrella.svg";
 import Rack from "../../../assets/icons/rack.png";
 const StudioHighlights = () => {
 	return (
