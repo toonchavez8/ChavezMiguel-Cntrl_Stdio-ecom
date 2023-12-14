@@ -12,7 +12,7 @@ const SpaceCard = ({
 }) => {
 	return (
 		<Link
-			href={link}
+			to={link}
 			className="hover:scale-105 transition duration-200 ease-in-out "
 		>
 			<article className=" max-w-sm lg:w-96 flex flex-col justify-center items-center gap-4 ff-barlow px-4 py-4 ">
