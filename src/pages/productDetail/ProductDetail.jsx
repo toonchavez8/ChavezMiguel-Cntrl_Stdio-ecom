@@ -57,6 +57,4 @@ ProductDetail.propTypes = {
 		stock: PropTypes.number,
 		quantity: PropTypes.number,
 	}).isRequired,
-	addToCart: PropTypes.func.isRequired,
-	Quantity: PropTypes.number,
 };

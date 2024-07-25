@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./NavBar.css";
 
 import centralLogo from "/Logo_CE.png";
@@ -23,7 +23,7 @@ export default function NavBar() {
 
 	return (
 		<header
-			className={`drawer z-50 fixed transition-all duration-75 font-normal ease-in-out  ${
+			className={` drawer z-50 fixed transition-all duration-75 font-normal ease-in-out  ${
 				navbarBg
 					? "bg-gradient-to-b from-[#0611e5] from-05% to-transparent bg-opacity-100 text-white"
 					: "bg-opcacity-0 text-primary"
@@ -34,7 +34,7 @@ export default function NavBar() {
 				{/* Navbar */}
 				<nav className="flex flex-row justify-between w-full align-baseline transition bg-scroll lg:navbar bg-none lg:mt-0 lg:pt-0 ">
 					<div className="mx-4 lg:hidden">
-						<button
+						<label
 							htmlFor="my-drawer-3"
 							className="btn btn-square btn-ghost stroke-primary"
 						>
@@ -51,7 +51,7 @@ export default function NavBar() {
 									d="M4 6h16M4 12h16M4 18h16"
 								></path>
 							</svg>
-						</button>
+						</label>
 					</div>
 					<Link
 						to={"/"}
@@ -67,7 +67,7 @@ export default function NavBar() {
 									<summary className="">
 										<Link to={"/renta"}>Renta</Link>
 									</summary>
-									<ul className="p-2 bg-primary ">
+									<ul className="p-2 bg-primary text-primary ">
 										<li>
 											<Link to={"renta/estudio"}>Estudio</Link>
 										</li>
@@ -75,7 +75,10 @@ export default function NavBar() {
 											<Link to={"renta/foro"}>Foro</Link>
 										</li>
 										<li>
-											<Link to={"renta/equipo"}>Equipo</Link>
+											<Link to={"renta/cocina"}>cocina</Link>
+										</li>
+										<li>
+											<Link to={"renta"}>Equipo</Link>
 										</li>
 									</ul>
 								</details>
@@ -105,7 +108,7 @@ export default function NavBar() {
 							</Link>
 						</ul>
 					</div>
-					<div className="hidden grid-flow-col gap-4 px-0 lg:grid fill-secondary md:px-10">
+					<div className="hidden grid-flow-col gap-4 px-0 lg:grid fill-secondary md:px-10 ">
 						{/* youtube link */}
 						<Link
 							to="https://www.youtube.com/@centralestudio9189"
@@ -176,8 +179,13 @@ export default function NavBar() {
 					</div>
 				</nav>
 			</div>
+			{/* Mobile Menu */}
 			<div className="drawer-side">
-				<label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+				<label
+					htmlFor="my-drawer-3"
+					className="drawer-overlay"
+					aria-label="Close navigation drawer"
+				></label>
 				<ul className="h-full gap-4 p-4 text-white uppercase menu w-80 bg-primary">
 					<li className="items-center">
 						<img
@@ -199,7 +207,10 @@ export default function NavBar() {
 									<Link to={"/renta/foro"}>Foro</Link>
 								</li>
 								<li>
-									<Link to={"/renta/equipo"}>Equipo</Link>
+									<Link to={"/renta/cocina"}>cocina</Link>
+								</li>
+								<li>
+									<Link to={"/renta"}>Equipo</Link>
 								</li>
 							</ul>
 						</details>
@@ -215,7 +226,7 @@ export default function NavBar() {
 						<Link to={"/ciclorama"}>Cicloramas</Link>
 					</li>
 					<span className="flex-1"></span>
-					<div className="grid grid-flow-col gap-4 px-0 fill-secondary md:px-10">
+					<div className="grid justify-between grid-flow-col gap-4 px-0 fill-secondary md:px-10 ">
 						{/* youtube link */}
 						<Link
 							to="https://www.youtube.com/@centralestudio9189"
@@ -270,7 +281,7 @@ export default function NavBar() {
 
 						{/* whatsapp */}
 						<Link
-							to="http://wa.link/rnk8qu"
+							to="https://wa.link/ygwmm6"
 							target="blank"
 							className="fill-secondary hover:text-accent "
 						>

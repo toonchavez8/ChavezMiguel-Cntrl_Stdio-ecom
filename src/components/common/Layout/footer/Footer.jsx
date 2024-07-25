@@ -3,16 +3,16 @@ import centralLogo from "/Logo_CE.png";
 
 export default function Footer() {
 	return (
-		<footer className="footer footer-center p-10 bg-primary text-primary-content">
+		<footer className="p-10 footer footer-center bg-primary text-primary-content">
 			<figure className="p-0 m-0">
 				<img
 					src={centralLogo}
 					alt="central logo"
-					className="w-40 h-20 object-cover object-center p-0 "
+					className="object-cover object-center w-40 h-20 p-0 "
 					style={{ objectPosition: "0 -45px" }}
 				/>
 				<a href="https://goo.gl/maps/9dnD42ucHGSFDS697" target="blank">
-					<p className="font-bold max-w-xs px-10 hover:text-accent cursor-pointer">
+					<p className="max-w-xs px-10 font-bold cursor-pointer hover:text-accent">
 						Amado Nervo 94, <br /> Ladron De Guevara, 44600 Guadalajara, Jal.
 					</p>
 				</a>
@@ -72,7 +72,7 @@ export default function Footer() {
 
 					{/* whatsapp */}
 					<a
-						href="http://wa.link/rnk8qu"
+						href="https://wa.link/ygwmm6"
 						target="blank"
 						className="fill-secondary hover:text-accent "
 					>
