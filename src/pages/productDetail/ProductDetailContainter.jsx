@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import ProductDetail from "./ProductDetail";
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../context/cartContext";
+import { useEffect, useState } from "react";
 import { getDoc, doc, collection } from "firebase/firestore";
 import { DATABASE } from "../../fireBaseConfig";
 
@@ -10,10 +9,6 @@ export default function ProductDetailContainer() {
 	const [isLoading, setIsLoading] = useState(true);
 
 	const { id } = useParams();
-
-	const { addToCart, getTotalQuanityById } = useContext(CartContext);
-
-	const Quantity = getTotalQuanityById(id);
 
 	useEffect(() => {
 		let itemCollection = collection(DATABASE, "equipo");
@@ -30,15 +25,11 @@ export default function ProductDetailContainer() {
 	}, [id]);
 
 	return (
-		<div className="flex justify-center items-center h-full">
+		<div className="flex items-center justify-center h-full">
 			{isLoading ? (
-				<span className="loading loading-spinner  loading-lg text-primary "></span>
+				<span className="loading loading-spinner loading-lg text-primary "></span>
 			) : (
-				<ProductDetail
-					productSelected={productSelected}
-					addToCart={addToCart}
-					Quantity={Quantity}
-				/>
+				<ProductDetail productSelected={productSelected} />
 			)}
 		</div>
 	);
