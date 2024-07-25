@@ -30,11 +30,11 @@ export default function NavBar() {
 			}`}
 		>
 			<input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-			<div className="drawer-content  w-full flex flex-col ff-nunito  px-4">
+			<div className="flex flex-col w-full px-4 drawer-content ff-nunito">
 				{/* Navbar */}
-				<nav className="w-full flex flex-row justify-between align-baseline lg:navbar bg-none bg-scroll transition lg:mt-0 lg:pt-0 ">
-					<div className=" lg:hidden mx-4">
-						<label
+				<nav className="flex flex-row justify-between w-full align-baseline transition bg-scroll lg:navbar bg-none lg:mt-0 lg:pt-0 ">
+					<div className="mx-4 lg:hidden">
+						<button
 							htmlFor="my-drawer-3"
 							className="btn btn-square btn-ghost stroke-primary"
 						>
@@ -51,19 +51,19 @@ export default function NavBar() {
 									d="M4 6h16M4 12h16M4 18h16"
 								></path>
 							</svg>
-						</label>
+						</button>
 					</div>
 					<Link
 						to={"/"}
-						className="btn btn-primary    p-0 rounded-none  lg:h-28 aspect-square  lg:ms-28 sm:me-auto"
+						className="p-0 rounded-none btn btn-primary lg:h-28 aspect-square lg:ms-28 sm:me-auto"
 					>
 						<img src={centralLogo} alt="Logo" className="my-auto" />
 					</Link>
-					<div className="hidden lg:block uppercase  mx-auto">
-						<ul className="menu menu-horizontal gap-1">
+					<div className="hidden mx-auto uppercase lg:block">
+						<ul className="gap-1 menu menu-horizontal">
 							{/* Navbar menu content here */}
 							<li>
-								<details className="fill-secondary  rounded">
+								<details className="rounded fill-secondary">
 									<summary className="">
 										<Link to={"/renta"}>Renta</Link>
 									</summary>
@@ -94,18 +94,18 @@ export default function NavBar() {
 						</ul>
 					</div>
 
-					<div className=" hidden lg:block uppercase">
+					<div className="hidden uppercase lg:block">
 						<ul className="menu menu-horizontal">
 							{/* Navbar menu content here */}
 							<Link
 								to={"/contacto"}
-								className="btn btn-secondary btn-outline border-2 px-5"
+								className="px-5 border-2 btn btn-secondary btn-outline"
 							>
 								contacto
 							</Link>
 						</ul>
 					</div>
-					<div className=" hidden lg:grid grid-flow-col gap-4 fill-secondary px-0 md:px-10 ">
+					<div className="hidden grid-flow-col gap-4 px-0 lg:grid fill-secondary md:px-10">
 						{/* youtube link */}
 						<Link
 							to="https://www.youtube.com/@centralestudio9189"
@@ -159,7 +159,7 @@ export default function NavBar() {
 
 						{/* whatsapp */}
 						<Link
-							to="http://wa.link/rnk8qu"
+							to="https://wa.link/ygwmm6"
 							target="blank"
 							className="fill-secondary hover:text-accent "
 						>
@@ -178,12 +178,12 @@ export default function NavBar() {
 			</div>
 			<div className="drawer-side">
 				<label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-				<ul className="menu p-4 w-80 h-full bg-primary text-white uppercase  gap-4">
+				<ul className="h-full gap-4 p-4 text-white uppercase menu w-80 bg-primary">
 					<li className="items-center">
 						<img
 							src={centralLogo}
 							alt="central logo"
-							className="w-40 h-20 object-cover object-center p-0 "
+							className="object-cover object-center w-40 h-20 p-0 "
 							style={{ objectPosition: "0 -45px" }}
 						/>
 					</li>
@@ -215,7 +215,7 @@ export default function NavBar() {
 						<Link to={"/ciclorama"}>Cicloramas</Link>
 					</li>
 					<span className="flex-1"></span>
-					<div className=" grid grid-flow-col gap-4 fill-secondary px-0 md:px-10 ">
+					<div className="grid grid-flow-col gap-4 px-0 fill-secondary md:px-10">
 						{/* youtube link */}
 						<Link
 							to="https://www.youtube.com/@centralestudio9189"
@@ -287,7 +287,7 @@ export default function NavBar() {
 					</div>
 					<Link
 						to={"/contacto"}
-						className="btn btn-secondary btn-outline border-2"
+						className="border-2 btn btn-secondary btn-outline"
 					>
 						contacto
 					</Link>

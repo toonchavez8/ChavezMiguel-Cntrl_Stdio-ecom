@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function SocialMedia() {
 	return (
-		<div className="flex flex-row gap-4 justify-center items-center">
+		<div className="flex flex-row items-center justify-center gap-4">
 			<Link to="https://www.facebook.com/centralestudio/" target="_blank">
 				<img src={facebook} alt="Facebook" className="" />
 			</Link>
@@ -16,10 +16,7 @@ export default function SocialMedia() {
 			<Link to="" target="_blank">
 				<img src={FAQ} alt="FAQ" className="" />
 			</Link>
-			<Link
-				href="https://api.whatsapp.com/send?phone=5213331719418&text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20de..."
-				target="_blank"
-			>
+			<Link href="https://wa.link/ygwmm6" target="_blank">
 				<img src={whatsapp} alt="Whatsapp" className="" />
 			</Link>
 		</div>

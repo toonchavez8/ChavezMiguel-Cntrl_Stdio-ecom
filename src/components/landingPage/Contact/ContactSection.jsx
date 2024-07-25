@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const ContactSection = () => {
 	return (
-		<section className=" py-8 w-full bg-primary flex-col justify-center items-center gap-8 inline-flex pt-16">
-			<div className="flex-col justify-start items-center gap-7 flex">
-				<div className="text-white  text-2xl md:text-4xl font-normal font- leading-10 text-center px-4  md:px-32">
+		<section className="inline-flex flex-col items-center justify-center w-full gap-8 py-8 pt-16  bg-primary">
+			<div className="flex flex-col items-center justify-start gap-7">
+				<div className="px-4 text-2xl font-normal leading-10 text-center text-white md:text-4xl font- md:px-32">
 					¿Necesitas un equipo creativo o más detalles de nuestro estudio?
 					<br />
 					<span className="text-white text-2xl md:text-4xl font-semibold font-['Barlow'] leading-10">
@@ -14,18 +14,18 @@ const ContactSection = () => {
 					</span>
 				</div>
 			</div>
-			<div className="flex gap-3  items-center sm:justify-around flex-col sm:flex-row ff-nunito pt-5 w-full max-w-7xl  px-4 sm:px-16 md:px-32 ff-nunito font-bold">
-				<button className="btn btn-outline btn-secondary border-2 group flex-1 max-w-sm  flex items-center font-bold">
+			<div className="flex flex-col items-center w-full gap-3 px-4 pt-5 font-bold sm:justify-around sm:flex-row ff-nunito max-w-7xl sm:px-16 md:px-32">
+				<button className="flex items-center flex-1 max-w-sm font-bold border-2 btn btn-outline btn-secondary group">
 					contacto
 					<IoMailOutline className="scale-150 ms-2" />
 				</button>
 
 				<Link
-					href="http://wa.link/rnk8qu"
+					href="https://wa.link/ygwmm6"
 					target="_blank"
-					className=" flex-1 w-full max-w-sm"
+					className="flex-1 w-full max-w-sm "
 				>
-					<button className="btn btn-secondary border-2 text-primary group  w-full max-w-sm flex items-center font-bold">
+					<button className="flex items-center w-full max-w-sm font-bold border-2 btn btn-secondary text-primary group">
 						WhatsApp
 						<FaWhatsapp className="scale-150 ms-2" />
 					</button>
