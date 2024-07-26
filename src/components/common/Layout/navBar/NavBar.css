@@ -31,3 +31,15 @@ nav :where(summary) {
 .menu :where(a):active {
 	@apply text-accent !important;
 }
+
+loading-animation {
+	animation: loading-animation 1s ease-in-out infinite;
+}
+@keyframes loading-animation {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
