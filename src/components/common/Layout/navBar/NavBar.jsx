@@ -157,22 +157,6 @@ export default function NavBar() {
 							</ul>
 						</div>
 						<div className="hidden grid-flow-col gap-4 px-0 lg:grid fill-secondary md:px-10 ">
-							{/* youtube link */}
-							<Link
-								to="https://www.youtube.com/@centralestudio9189"
-								target="blank"
-								className="fill-secondary hover:fill-accent"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									className="fill-secondary hover:fill-accent"
-								>
-									<path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-								</svg>
-							</Link>
 							{/* fb svg */}
 							<Link
 								to="https://www.facebook.com/centralestudio"
@@ -271,22 +255,6 @@ export default function NavBar() {
 						</li>
 						<span className="flex-1"></span>
 						<div className="grid justify-between grid-flow-col gap-4 px-0 fill-secondary md:px-10 ">
-							{/* youtube link */}
-							<Link
-								to="https://www.youtube.com/@centralestudio9189"
-								target="blank"
-								className="fill-secondary hover:fill-accent"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									className="fill-secondary hover:fill-accent"
-								>
-									<path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-								</svg>
-							</Link>
 							{/* fb svg */}
 							<Link
 								to="https://www.facebook.com/centralestudio"
