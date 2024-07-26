@@ -11,3 +11,7 @@
 main {
 	scrollbar-gutter: stable;
 }
+
+img {
+	@apply rounded-none !important;
+}
