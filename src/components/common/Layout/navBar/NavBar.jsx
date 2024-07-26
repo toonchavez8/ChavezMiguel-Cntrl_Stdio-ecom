@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./NavBar.css";
-
 import centralLogo from "/Logo_CE.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 export default function NavBar() {
 	// create a function to add bg color to navbar on scroll
 
 	const [navbarBg, setNavbarBg] = useState(false);
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -20,6 +22,31 @@ export default function NavBar() {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+
+	const handleContactClick = () => {
+		if (location.pathname === "/") {
+			// If already on the homepage, just scroll to the contact section
+			document
+				.getElementById("contact-section")
+				.scrollIntoView({ block: "start" });
+		} else {
+			// Navigate to the homepage and then scroll to the contact section
+			navigate("/", { state: { scrollToContact: true } });
+		}
+	};
+
+	useEffect(() => {
+		if (location.state?.scrollToContact) {
+			// Use setTimeout to ensure the page content is fully loaded
+			setTimeout(() => {
+				document
+					.getElementById("contact-section")
+					.scrollIntoView({ behavior: "smooth" });
+			}, 250); // Adjust the delay if necessary to let the page content load and then scroll to the contact section
+			// Clear the state after handling the scroll
+			window.history.replaceState({}, document.title);
+		}
+	}, [location]);
 
 	return (
 		<header
@@ -62,34 +89,40 @@ export default function NavBar() {
 					<div className="hidden mx-auto uppercase lg:block">
 						<ul className="gap-1 menu menu-horizontal">
 							{/* Navbar menu content here */}
-							<li>
-								<details className="rounded fill-secondary">
-									<summary className="">
+							<li className="">
+								<details className="rounded ">
+									<summary className=" fill-secondary hover:text-secondary">
 										<Link to={"/renta"}>Renta</Link>
 									</summary>
 									<ul className="p-2 bg-primary text-primary ">
-										<li>
-											<Link to={"renta/estudio"}>Estudio</Link>
+										<li className="hover:text-secondary">
+											<Link className="" to={"renta/estudio"}>
+												Estudio
+											</Link>
 										</li>
-										<li>
-											<Link to={"renta/foro"}>Foro</Link>
+										<li className="">
+											<Link className="" to={"renta/foro"}>
+												Foro
+											</Link>
 										</li>
-										<li>
-											<Link to={"renta/cocina"}>cocina</Link>
+										<li className="">
+											<Link className="" to={"renta/cocina"}>
+												cocina
+											</Link>
 										</li>
-										<li>
-											<Link to={"renta"}>Equipo</Link>
+										<li className="">
+											<Link className="" to={"renta"}>
+												Equipo
+											</Link>
 										</li>
 									</ul>
 								</details>
 							</li>
 
-							<li>
-								<Link to={"/servicios"}>servicios</Link>
-							</li>
-
-							<li>
-								<Link to={"/portafolio"}>portafolio</Link>
+							<li className="hover:text-secondary">
+								<Link to={"/servicios"} className="inherit">
+									servicios
+								</Link>
 							</li>
 							<li>
 								<Link to={"/ciclorama"}>Cicloramas</Link>
@@ -100,12 +133,12 @@ export default function NavBar() {
 					<div className="hidden uppercase lg:block">
 						<ul className="menu menu-horizontal">
 							{/* Navbar menu content here */}
-							<Link
-								to={"/contacto"}
-								className="px-5 border-2 btn btn-secondary btn-outline"
+							<button
+								onClick={() => handleContactClick()}
+								className="px-5 border-2 btn btn-secondary btn-outline "
 							>
 								contacto
-							</Link>
+							</button>
 						</ul>
 					</div>
 					<div className="hidden grid-flow-col gap-4 px-0 lg:grid fill-secondary md:px-10 ">
@@ -218,10 +251,6 @@ export default function NavBar() {
 					<li>
 						<Link to={"/servicios"}>servicios</Link>
 					</li>
-
-					<li>
-						<Link to={"/portafolio"}>portafolio</Link>
-					</li>
 					<li>
 						<Link to={"/ciclorama"}>Cicloramas</Link>
 					</li>
@@ -297,7 +326,8 @@ export default function NavBar() {
 						</Link>
 					</div>
 					<Link
-						to={"/contacto"}
+						id="contacto"
+						to={"#contact-section"}
 						className="border-2 btn btn-secondary btn-outline"
 					>
 						contacto

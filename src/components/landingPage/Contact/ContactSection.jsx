@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 const ContactSection = () => {
 	return (
-		<section className="inline-flex flex-col items-center justify-center w-full gap-8 py-8 pt-16  bg-primary">
+		<section
+			className="inline-flex flex-col items-center justify-center w-full gap-8 py-8 pt-16 bg-primary debug"
+			id="contact-section"
+		>
 			<div className="flex flex-col items-center justify-start gap-7">
 				<div className="px-4 text-2xl font-normal leading-10 text-center text-white md:text-4xl font- md:px-32">
 					¿Necesitas un equipo creativo o más detalles de nuestro estudio?

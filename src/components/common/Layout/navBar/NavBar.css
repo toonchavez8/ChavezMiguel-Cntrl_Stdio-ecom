@@ -3,11 +3,31 @@
 .ff-nunito {
 	font-family: "Nunito", sans-serif;
 }
-
+html {
+	scroll-behavior: smooth;
+}
 header {
 	position: fixed;
 }
 
 nav {
 	position: sticky;
+}
+
+.menu :where(a) :not(summary) :not(#contacto) {
+	@apply hover:text-secondary hover:bg-primary/10 bg-blend-overlay !important;
+	@apply transition-all ease-in hover:font-bold;
+}
+/* on click animate scale down to 98 and change color to accent color */
+.menu :where(a):active,
+.menu :where(summary):active {
+	@apply scale-[98%] text-accent;
+}
+nav :where(a),
+nav :where(summary) {
+	@apply hover:text-secondary !important;
+}
+
+.menu :where(a):active {
+	@apply text-accent !important;
 }
