@@ -4,14 +4,13 @@ const EspaciosDisponibles = () => {
 	return (
 		<section
 			id="conoce-los-espacios"
-			className="flex-col justify-start items-center gap-28 inline-flex my-20 w-full max-w-7xl"
+			className="inline-flex flex-col items-center justify-start w-full my-20 gap-28 max-w-7xl"
 		>
-			<h2 className="max-w-4xl text-xl px-2 w-84 text-stone-900 md:px-2 lg:px-2 md:w-[30rem] lg:w-full md:text-3xl lg:text-6xl font-semibold ff-barlow text-center ff-barlow mt-16 group transition-all duration-200 ease-in-out">
-				Conoce los{" "}
-				<span className="text-accent group-hover:text-primary group-hover:scale-105">
-					espacios disponibles
-				</span>{" "}
-				en renta para tu siguiente sesión
+			<h2 className="max-w-5xl text-lg px-2 w-84 text-stone-900 md:px-2 lg:px-2 md:w-[30rem] lg:w-full md:text-3xl lg:text-3xl font-semibold ff-barlow text-center ff-barlow mt-16 group transition-all duration-200 ease-in-out">
+				Descubre el lugar ideal para tu producción fotográfica o de video en
+				Guadalajara a una cuadra de Av. Hidalgo y Américas. <br />
+				Explora nuestros espacios en renta y encuentra el escenario perfecto
+				para tu próxima sesión.
 			</h2>
 			<EspaciosDisponiblesContainer />
 		</section>

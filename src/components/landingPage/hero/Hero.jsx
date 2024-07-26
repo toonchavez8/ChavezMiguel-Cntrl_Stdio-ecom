@@ -4,10 +4,8 @@ import heroImg from "../../../assets/landing/Hero_Banner.png";
 import estudio from "../../../assets/landing/Estudio-1.png";
 import ForoImg from "../../../assets/landing/Foro-1.jpg";
 import PropTypes from "prop-types";
-import { AiOutlineArrowRight } from "react-icons/ai";
+
 import Carousel from "../../common/Carusel/Carusel.jsx";
-import { Link as LinkRS } from "react-scroll";
-import { Link } from "react-router-dom";
 
 export default function Hero(
 	{ heroTaglines } // heroTaglines is an array of strings
@@ -27,31 +25,11 @@ export default function Hero(
 	const heroTagline = heroTaglines[taglineIndex];
 
 	return (
-		<section className="relative  w-full transition-all ease">
+		<section className="relative w-full transition-all ease">
 			<div className="absolute  flex flex-col w-[16rem] md:w-[28rem] lg:w-[48rem] top-1/2 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white uppercase transition-all duration-300 ease-in-out">
-				<h1 className="ff-barlow text-xl sm:text-4xl lg:text-6xl whitespace-pre-line text-left">
+				<h1 className="text-xl text-left whitespace-pre-line ff-barlow sm:text-4xl lg:text-6xl">
 					<span dangerouslySetInnerHTML={{ __html: heroTagline }} />
 				</h1>
-				<div className="flex gap-3 flex-col md:flex-row ff-nunito pt-5 ">
-					<LinkRS
-						to="conoce-los-espacios"
-						smooth={true}
-						duration={500}
-						offset={-100}
-					>
-						<button className="btn btn-outline btn-primary border-2 group">
-							Nuestros Espacios
-							<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
-						</button>
-					</LinkRS>
-
-					<Link to="/portafolio" rel="noreferrer">
-						<button className="btn btn-outline btn-secondary border-2 group">
-							Nuestro Trabajo
-							<AiOutlineArrowRight className="inline-block ml-2 transform transition-transform duration-300 group-hover:scale-125 group-hover:translate-x-1" />
-						</button>
-					</Link>
-				</div>
 			</div>
 			<Carousel
 				images={[
