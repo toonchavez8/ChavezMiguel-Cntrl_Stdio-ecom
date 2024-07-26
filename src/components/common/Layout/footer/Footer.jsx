@@ -76,13 +76,13 @@ export default function Footer() {
 						to="/politica-de-renta"
 						className="fill-secondary hover:fill-accent"
 					>
-						Política de Renta
+						Políticas de renta
 					</Link>
 					<Link
 						to="/condiciones-de-uso"
 						className="fill-secondary hover:fill-accent"
 					>
-						Condiciones de Uso
+						Condiciones de uso
 					</Link>
 				</div>
 			</div>
