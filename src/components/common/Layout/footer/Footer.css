@@ -1,0 +1,7 @@
+.border-accent-element::after {
+	content: "";
+	display: block;
+	width: 25%;
+
+	@apply pt-4 transition-all duration-500 ease-out border-b-2 hover:border-secondary hover:w-full;
+}
