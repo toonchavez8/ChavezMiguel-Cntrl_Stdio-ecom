@@ -10,7 +10,7 @@ export default function NavBar() {
 	const location = useLocation();
 	const scrollDelay = 400; // Adjust the delay if necessary to let the page content load and then scroll to the contact section
 
-	const [loadingSpinner, setLoadingSpinner] = useState(true);
+	const [loadingSpinner, setLoadingSpinner] = useState(false);
 
 	// a function to add bg color to navbar on scroll
 	useEffect(() => {
