@@ -1,43 +1,32 @@
+import { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import AirbnbReviewEmail from "./Email.jsx";
-import { render } from "@react-email/components";
-import nodemailer from "nodemailer";
+import emailjs from "@emailjs/browser";
 
 const EmailContactForm = () => {
-	const emailDestination = import.meta.env.VITE_EMAIL_DESTINATION;
-	const emailPassword = import.meta.env.VITE_EMAIL_PASSWORD;
-
-	const transporter = nodemailer.createTransport({
-		host: "mail.centralestudio.com",
-		port: 465,
-		secure: true, // true for 465, false for other ports
-		auth: {
-			user: emailDestination,
-			pass: emailPassword,
-		},
-	});
+	const formRef = useRef();
+	const [status, setStatus] = useState("idle"); // 'idle', 'loading', 'sent', 'failed'
 
 	const formik = useFormik({
 		initialValues: {
-			name: "",
-			email: "",
-			phone: "",
+			from_name: "",
+			from_email: "",
+			from_phone: "",
 			message: "",
 			confirmEmail: "",
 		},
 		validationSchema: Yup.object({
-			name: Yup.string().required("Como te llamas?"),
-			email: Yup.string()
+			from_name: Yup.string().required("¿Cómo te llamas?"),
+			from_email: Yup.string()
 				.email("No es un correo válido")
 				.required("Correo electrónico es requerido"),
-			phone: Yup.string().matches(
+			from_phone: Yup.string().matches(
 				/^\+?[1-9]\d{1,14}$/,
 				"No es un número de teléfono válido"
-			), // Optional field
+			),
 			message: Yup.string().required("Mensaje es requerido"),
 		}),
-		onSubmit: async (values) => {
+		onSubmit: (values) => {
 			if (values.confirmEmail) {
 				console.log(
 					"Form submission canceled due to filled confirmEmail field"
@@ -45,76 +34,93 @@ const EmailContactForm = () => {
 				return;
 			}
 
-			if (!emailDestination) {
-				console.log(
-					"No se envió el correo electrónico porque no se ha configurado la variable de ambiente VITE_EMAIL_DESTINATION"
-				);
-				return;
-			}
+			setStatus("loading");
 
-			try {
-				const emailHtml = render(
-					<AirbnbReviewEmail
-						clientName={values.name}
-						clientEmail={values.email}
-						reviewText={values.message}
-					/>
-				);
-
-				const emailData = {
-					from: values.email,
-					to: emailDestination,
-					subject: "Contacto de la comunidad central de Renta de Estudio",
-					html: emailHtml,
-				};
-
-				await transporter.sendMail(emailData);
-				console.log("Email sent successfully");
-			} catch (error) {
-				console.error("Error sending email:", error);
-			}
+			emailjs
+				.sendForm(
+					import.meta.env.VITE_EMAIL_SERVICE_ID,
+					import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+					formRef.current,
+					import.meta.env.VITE_EMAIL_PUBLIC_KEY
+				)
+				.then(
+					() => {
+						setStatus("sent");
+					},
+					() => {
+						setStatus("failed");
+					}
+				)
+				.finally(() => setTimeout(() => setStatus("idle"), 3000)); // Reset status after 3 seconds
 		},
 	});
+
+	const renderButtonContent = () => {
+		switch (status) {
+			case "loading":
+				return "Enviando...";
+			case "sent":
+				return "Enviado";
+			case "failed":
+				return "Error al enviar";
+			default:
+				return "Enviar";
+		}
+	};
+
+	const buttonClass = () => {
+		switch (status) {
+			case "loading":
+				return "cursor-not-allowed animate-pulse bg-accent";
+			case "sent":
+				return "bg-secondary text-primary";
+			case "failed":
+				return "bg-red-500";
+			default:
+				return "bg-accent hover:bg-accent-dark";
+		}
+	};
+
 	return (
-		<form onSubmit={formik.handleSubmit} className="w-full">
+		<form ref={formRef} onSubmit={formik.handleSubmit} className="w-full">
 			<input
 				type="text"
-				name="name"
+				name="from_name"
 				placeholder="Nombre"
-				value={formik.values.name}
+				value={formik.values.from_name}
 				onChange={formik.handleChange}
 				onBlur={formik.handleBlur}
 				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
 			/>
-			<div className="flex ">
-				{formik.touched.name && formik.errors.name ? (
-					<div className="text-red-500">{formik.errors.name}</div>
-				) : null}
-				<input
-					type="email"
-					name="email"
-					placeholder="Email"
-					value={formik.values.email}
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-				/>
-				{formik.touched.email && formik.errors.email ? (
-					<div className="text-red-500">{formik.errors.email}</div>
-				) : null}
-				<input
-					type="tel"
-					name="phone"
-					placeholder="Teléfono (opcional)"
-					value={formik.values.phone}
-					onChange={formik.handleChange}
-					onBlur={formik.handleBlur}
-					className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-				/>
-				{formik.touched.phone && formik.errors.phone ? (
-					<div className="text-red-500">{formik.errors.phone}</div>
-				) : null}
-			</div>
+			{formik.touched.from_name && formik.errors.from_name ? (
+				<div className="text-red-500">{formik.errors.from_name}</div>
+			) : null}
+
+			<input
+				type="email"
+				name="from_email"
+				placeholder="Email"
+				value={formik.values.from_email}
+				onChange={formik.handleChange}
+				onBlur={formik.handleBlur}
+				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
+			/>
+			{formik.touched.from_email && formik.errors.from_email ? (
+				<div className="text-red-500">{formik.errors.from_email}</div>
+			) : null}
+
+			<input
+				type="tel"
+				name="from_phone"
+				placeholder="Teléfono (opcional)"
+				value={formik.values.from_phone}
+				onChange={formik.handleChange}
+				onBlur={formik.handleBlur}
+				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
+			/>
+			{formik.touched.from_phone && formik.errors.from_phone ? (
+				<div className="text-red-500">{formik.errors.from_phone}</div>
+			) : null}
 
 			<textarea
 				name="message"
@@ -139,10 +145,20 @@ const EmailContactForm = () => {
 
 			<button
 				type="submit"
-				className="w-full max-w-sm px-4 py-2 font-normal text-left text-white rounded-md bg-accent hover:bg-accent-dark"
+				className={`w-full max-w-sm px-4 py-2 font-normal text-left text-white rounded-md ${buttonClass()}`}
+				disabled={status === "loading"}
 			>
-				Enviar
+				{renderButtonContent()}
 			</button>
+
+			{status === "failed" && (
+				<div className="mt-4 text-red-500">
+					Error al enviar el email. Inténtelo de nuevo más tarde.
+				</div>
+			)}
+			{status === "sent" && (
+				<div className="mt-4 text-green-500">Email enviado exitosamente.</div>
+			)}
 		</form>
 	);
 };
