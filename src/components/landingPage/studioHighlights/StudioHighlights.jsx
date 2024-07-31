@@ -17,7 +17,7 @@ import WifiIcon from "../../../assets/icons/wifi.svg";
 import FridgeIcon from "../../../assets/icons/fridge.svg";
 import BathroomIcon from "../../../assets/icons/bathroom.png";
 import PortableClosetsIcon from "../../../assets/icons/hanger.svg";
-import Lights from "../../../assets/icons/umbrella.png";
+import Lights from "../../../assets/icons/umbrella.svg";
 import Rack from "../../../assets/icons/rack.png";
 const StudioHighlights = () => {
 	return (
@@ -43,7 +43,7 @@ const StudioHighlights = () => {
 						Tu renta incluye
 					</p>
 
-					<div className="justify-between items-start inline-flex w-full max-w-7xl gap-4 mt-4">
+					<div className="justify-between items-start flex flex-col xs:flex-row w-full max-w-7xl gap-4 mt-4">
 						<div className="flex-col justify-start items-start inline-flex gap-2">
 							{/* Studio Items */}
 							<StudioItem
@@ -114,15 +114,17 @@ const StudioHighlights = () => {
 // Separate component for each studio item
 const StudioItem = ({ icon, text, sub, children }) => (
 	<div className=" flex gap-1  text-left  hover:scale-105 ">
-		<div className="w-8 h-8 ">
+		<div className=" md:w-8 w-6  md:h-8 h-6   aspect-square">
 			{icon && (
 				<img src={icon} alt={text} className="w-full h-full object-contain" />
 			)}
 			{children}
 		</div>
 		<div className="flex flex-col ">
-			<div className=" p-0 m-0  font-extrabold ">{text}</div>
-			{sub && <small className="  md:text-sm  -my-1 ">{sub}</small>}
+			<div className=" p-0 m-0  font-extrabold text-sm md:text-base ">
+				{text}
+			</div>
+			{sub && <small className=" text-xs md:text-sm  -my-1 ">{sub}</small>}
 		</div>
 	</div>
 );

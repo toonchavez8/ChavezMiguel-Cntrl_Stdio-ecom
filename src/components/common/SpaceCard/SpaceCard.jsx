@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const SpaceCard = ({
 	imageSrc,
@@ -10,33 +11,35 @@ const SpaceCard = ({
 	subLine,
 }) => {
 	return (
-		<a
-			href={link}
-			className="hover:scale-105 transition duration-200 ease-in-out "
+		<Link
+			to={link}
+			className="transition duration-200 ease-in-out hover:scale-105 "
 		>
-			<article className=" max-w-sm lg:w-96 flex flex-col justify-center items-center gap-4 ff-barlow px-4 py-4 ">
+			<article className="flex flex-col items-center justify-center max-w-sm gap-4 lg:w-96 ff-barlow ">
 				<img
 					src={imageSrc}
 					alt={title}
-					className="rounded max-h-64 w-full object-cover"
+					className="object-cover w-full rounded max-h-64"
 				/>
-				<div className="flex flex-row justify-center  gap-2 align-baseline">
-					<div className="flex flex-col  gap-0 m-0 p-0">
-						<h3 className="text-xl font-semibold text-stone-900">{title}</h3>
-						<small className="text-stone-900">{area}</small>
-						<p className="text-stone-900">{operationHours}</p>
+				<div className="flex flex-row justify-between w-full gap-2 align-baseline ">
+					<div className="flex flex-col p-0 m-0 ">
+						<h3 className="text-xl font-semibold leading-tight text-stone-900">
+							{title}
+						</h3>
+						<small className="leading-tight text-stone-900">{area}</small>
+						<p className="leading-tight text-stone-900">{operationHours}</p>
 					</div>
-					<p className="btn btn-primary flex flex-col justify-center items-center text-base-100 gap-0 ">
+					<p className="flex flex-col items-center justify-center gap-0 btn btn-primary text-base-100 ">
 						{price}
 						{subLine ? (
-							<span className=" text-xs text-base-300">{subLine}</span>
+							<span className="text-xs text-base-300 ">{subLine}</span>
 						) : (
 							""
 						)}
 					</p>
 				</div>
 			</article>
-		</a>
+		</Link>
 	);
 };
 

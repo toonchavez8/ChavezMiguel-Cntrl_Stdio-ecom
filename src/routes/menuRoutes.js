@@ -5,13 +5,9 @@ import Foro from "../pages/renta/Foro";
 import Estudio from "../pages/renta/Estudio";
 import Equipo from "../pages/renta/Equipo";
 import Services from "../pages/Services";
-import Portafolio from "../pages/Portafolio";
 import Cicloramas from "../pages/Cicloramas";
-import Contacto from "../pages/Contacto";
 import ProductDetailContainter from "../pages/productDetail/ProductDetailContainter";
 import ProductListContainer from "../components/common/ProductList/ProductListContainer";
-import CartPage from "../pages/CartPage";
-import CheckoutContainer from "../pages/Checkout/CheckoutContainer";
 import PoliticaDeRenta from "../pages/termsAndconditions/PoliticaDeRenta.jsx";
 import CondicionesDeUso from "../pages/termsAndconditions/CondicionesDeUso.jsx";
 import Cocina from "../pages/renta/Cocina.jsx";
@@ -54,19 +50,9 @@ export const menuRoutes = [
 		Element: Services,
 	},
 	{
-		id: 8,
-		path: "/portafolio",
-		Element: Portafolio,
-	},
-	{
 		id: 9,
 		path: "/ciclorama",
 		Element: Cicloramas,
-	},
-	{
-		id: 10,
-		path: "/contacto",
-		Element: Contacto,
 	},
 	{
 		id: 11,
@@ -77,16 +63,6 @@ export const menuRoutes = [
 		id: 12,
 		path: "/itemdetail/category/:category",
 		Element: ProductListContainer,
-	},
-	{
-		id: 13,
-		path: "/cart",
-		Element: CartPage,
-	},
-	{
-		id: 14,
-		path: "/checkout",
-		Element: CheckoutContainer,
 	},
 	{
 		id: 15,

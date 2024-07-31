@@ -1,12 +1,12 @@
 import { addDoc, collection } from "firebase/firestore";
-import { equipo } from "./productMock";
+import { espacios } from "./productMock";
 import { DATABASE } from "../fireBaseConfig";
 
 export default function AgregarDocs() {
 	const rellenar = () => {
-		let itemCollection = collection(DATABASE, "equipo");
+		let itemCollection = collection(DATABASE, "espacios");
 
-		equipo.forEach((item) => {
+		espacios.forEach((item) => {
 			addDoc(itemCollection, item);
 		});
 	};

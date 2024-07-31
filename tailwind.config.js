@@ -2,6 +2,14 @@
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
+		screens: {
+			xs: "480px",
+			sm: "640px",
+			md: "768px",
+			lg: "1024px",
+			xl: "1280px",
+			"2xl": "1536px",
+		},
 		extend: {
 			height: {
 				128: "32rem",
@@ -28,7 +36,7 @@ export default {
 
 					neutral: "#14151F",
 
-					"base-100": "#ECF0F3",
+					"base-100": "#ffffff",
 
 					info: "#8DBCDD",
 

@@ -5,6 +5,7 @@ import { RiRemoteControlLine } from "react-icons/ri";
 import { BiSquareRounded } from "react-icons/bi";
 import { MdFilter } from "react-icons/md";
 import { TiFlashOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const MemberShipSection = () => {
 	return (
@@ -96,6 +97,21 @@ const MemberShipSection = () => {
 					icon={<TbBasketDiscount className="w-8 h-8" />}
 				/>
 			</ul>
+
+			{/* Call to Action */}
+			<div className="w-full text-center mt-8">
+				<p className="text-lg md:text-2xl  font-medium mb-4">
+					Descubre los Beneficios de Nuestras Membresías. <br />
+					<span className="text-accent font-bold">
+						¡Aprovecha Ahora y Eleva tus Producciones!
+					</span>
+				</p>
+				<Link to="/membresias" className="group">
+					<button className="btn btn-outline btn-primary border-2 border-primary text-primary hover:text-white">
+						¡Conoce Nuestras Membresías!
+					</button>
+				</Link>
+			</div>
 		</section>
 	);
 };
