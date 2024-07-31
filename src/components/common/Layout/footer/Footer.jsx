@@ -9,8 +9,8 @@ export default function Footer() {
 			className="p-10 footer footer-center bg-primary text-primary-content "
 			id="footer"
 		>
-			<div className="flex flex-row justify-between w-full debug">
-				<figure className="flex flex-col items-start justify-center w-full gap-4 p-0 m-0 debug">
+			<div className="flex flex-row justify-between w-full `">
+				<figure className="flex flex-col items-start justify-center w-full gap-4 p-0 m-0 `">
 					<img
 						src={centralLogo}
 						alt="central logo"
