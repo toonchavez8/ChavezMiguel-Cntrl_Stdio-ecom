@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 
 const EmailContactForm = () => {
 	const formRef = useRef();
-	const [status, setStatus] = useState("idle"); // 'idle', 'loading', 'sent', 'failed'
+	const [status, setStatus] = useState("idle");
 
 	const formik = useFormik({
 		initialValues: {
@@ -43,15 +43,13 @@ const EmailContactForm = () => {
 					formRef.current,
 					import.meta.env.VITE_EMAIL_PUBLIC_KEY
 				)
-				.then(
-					() => {
-						setStatus("sent");
-					},
-					() => {
-						setStatus("failed");
-					}
-				)
-				.finally(() => setTimeout(() => setStatus("idle"), 3000)); // Reset status after 3 seconds
+				.then(() => {
+					setStatus("sent");
+				})
+				.catch(() => {
+					setStatus("failed");
+				})
+				.finally(() => setTimeout(() => setStatus("idle"), 3000));
 		},
 	});
 
@@ -77,64 +75,128 @@ const EmailContactForm = () => {
 			case "failed":
 				return "bg-red-500";
 			default:
-				return "bg-accent hover:bg-accent-dark";
+				return "border border-accent text-white hover:bg-accent-dark";
 		}
 	};
 
+	// Function to conditionally set placeholder or error message
+	const getPlaceholderOrError = (fieldName) => {
+		const field = formik.touched[fieldName] && formik.errors[fieldName];
+		return formik.values[fieldName] === "" && field
+			? formik.errors[fieldName]
+			: "";
+	};
+
 	return (
-		<form ref={formRef} onSubmit={formik.handleSubmit} className="w-full">
-			<input
-				type="text"
-				name="from_name"
-				placeholder="Nombre"
-				value={formik.values.from_name}
-				onChange={formik.handleChange}
-				onBlur={formik.handleBlur}
-				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-			/>
-			{formik.touched.from_name && formik.errors.from_name ? (
-				<div className="text-red-500">{formik.errors.from_name}</div>
-			) : null}
+		<form
+			ref={formRef}
+			onSubmit={formik.handleSubmit}
+			className="flex flex-col items-start justify-start w-full gap-1 md:pe-12 "
+		>
+			<p className="text-lg ">
+				Envianos un mensaje y dinos como podemos ayudarte.
+			</p>
 
-			<input
-				type="email"
-				name="from_email"
-				placeholder="Email"
-				value={formik.values.from_email}
-				onChange={formik.handleChange}
-				onBlur={formik.handleBlur}
-				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-			/>
-			{formik.touched.from_email && formik.errors.from_email ? (
-				<div className="text-red-500">{formik.errors.from_email}</div>
-			) : null}
+			{/* Name Field */}
+			<div className="relative w-full">
+				<input
+					type="text"
+					name="from_name"
+					placeholder={getPlaceholderOrError("from_name") || "Nombre"}
+					value={formik.values.from_name}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					className={`w-full px-4 py-2 mb-4 font-normal text-left bg-transparent border-b border-gray-300 focus:outline-none focus:border-accent hover:text-accent ${
+						formik.touched.from_name && formik.errors.from_name
+							? "placeholder-red-500"
+							: ""
+					}`}
+				/>
+				{formik.touched.from_name &&
+				formik.errors.from_name &&
+				formik.values.from_name ? (
+					<div className="absolute left-0 -mt-4 text-sm text-red-500 top-full">
+						{formik.errors.from_name}
+					</div>
+				) : null}
+			</div>
 
-			<input
-				type="tel"
-				name="from_phone"
-				placeholder="Teléfono (opcional)"
-				value={formik.values.from_phone}
-				onChange={formik.handleChange}
-				onBlur={formik.handleBlur}
-				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-			/>
-			{formik.touched.from_phone && formik.errors.from_phone ? (
-				<div className="text-red-500">{formik.errors.from_phone}</div>
-			) : null}
+			<div className="flex flex-col items-start justify-start w-full gap-4 md:gap-0 md:flex-row">
+				{/* Email Field */}
+				<div className="relative w-full">
+					<input
+						type="email"
+						name="from_email"
+						placeholder={getPlaceholderOrError("from_email") || "Email"}
+						value={formik.values.from_email}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						className={`w-full px-4 py-2 mb-4 font-normal text-left bg-transparent border-b border-gray-300 focus:outline-none focus:border-accent hover:text-accent ${
+							formik.touched.from_email && formik.errors.from_email
+								? "placeholder-red-500"
+								: ""
+						}`}
+					/>
+					{formik.touched.from_email &&
+					formik.errors.from_email &&
+					formik.values.from_email ? (
+						<div className="absolute left-0 -mt-4 text-sm text-red-500 top-full">
+							{formik.errors.from_email}
+						</div>
+					) : null}
+				</div>
 
-			<textarea
-				name="message"
-				placeholder="Mensaje"
-				value={formik.values.message}
-				onChange={formik.handleChange}
-				onBlur={formik.handleBlur}
-				className="w-full max-w-sm px-4 py-2 mb-4 font-normal text-left border border-gray-300 rounded-md focus:outline-none focus:border-accent hover:text-accent"
-			/>
-			{formik.touched.message && formik.errors.message ? (
-				<div className="text-red-500">{formik.errors.message}</div>
-			) : null}
+				{/* Phone Field */}
+				<div className="relative w-full">
+					<input
+						type="tel"
+						name="from_phone"
+						placeholder={
+							getPlaceholderOrError("from_phone") || "Teléfono (opcional)"
+						}
+						value={formik.values.from_phone}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						className={`w-full px-4 py-2 mb-4 font-normal text-left bg-transparent border-b border-gray-300 focus:outline-none focus:border-accent hover:text-accent ${
+							formik.touched.from_phone && formik.errors.from_phone
+								? "placeholder-red-500"
+								: ""
+						}`}
+					/>
+					{formik.touched.from_phone &&
+					formik.errors.from_phone &&
+					formik.values.from_phone ? (
+						<div className="absolute left-0 -mt-4 text-sm text-red-500 top-full">
+							{formik.errors.from_phone}
+						</div>
+					) : null}
+				</div>
+			</div>
 
-			{/* Hidden input field for anti-spam */}
+			{/* Message Field */}
+			<div className="relative w-full">
+				<textarea
+					name="message"
+					placeholder={getPlaceholderOrError("message") || "Mensaje"}
+					value={formik.values.message}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					className={`w-full px-4 py-2 mb-4 font-normal text-left bg-transparent border-b border-gray-300 focus:outline-none focus:border-accent hover:text-accent ${
+						formik.touched.message && formik.errors.message
+							? "placeholder-red-500"
+							: ""
+					}`}
+				/>
+				{formik.touched.message &&
+				formik.errors.message &&
+				formik.values.message ? (
+					<div className="absolute left-0 -mt-4 text-sm text-red-500 top-full">
+						{formik.errors.message}
+					</div>
+				) : null}
+			</div>
+
+			{/* Hidden input for spam prevention */}
 			<input
 				type="email"
 				name="confirmEmail"
@@ -143,22 +205,14 @@ const EmailContactForm = () => {
 				className="hidden"
 			/>
 
+			{/* Submit Button */}
 			<button
 				type="submit"
-				className={`w-full max-w-sm px-4 py-2 font-normal text-left text-white rounded-md ${buttonClass()}`}
+				className={`w-full max-w-sm px-4 py-2 font-normal text-left rounded-md ${buttonClass()}`}
 				disabled={status === "loading"}
 			>
 				{renderButtonContent()}
 			</button>
-
-			{status === "failed" && (
-				<div className="mt-4 text-red-500">
-					Error al enviar el email. Inténtelo de nuevo más tarde.
-				</div>
-			)}
-			{status === "sent" && (
-				<div className="mt-4 text-green-500">Email enviado exitosamente.</div>
-			)}
 		</form>
 	);
 };
